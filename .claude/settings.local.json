@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha honbo1.pdf)"
+    ]
+  }
+}

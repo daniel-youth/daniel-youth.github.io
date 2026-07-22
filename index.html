@@ -93,10 +93,11 @@
   .live-card{
     display:inline-flex;
     flex-direction:column;
+    align-items:center;
     gap:4px;
     padding: 18px 28px;
     margin: 0 auto;
-    text-align:left;
+    text-align:center;
     min-width: 260px;
   }
   .live-label{
@@ -116,6 +117,83 @@
   }
   .live-title{ font-family:'Gaegu'; font-weight:700; font-size:1.35rem; }
   .live-sub{ font-size:0.88rem; color: var(--ink-soft); }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee-wrap{
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .marquee-track{
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-wrap:hover .marquee-track{
+    animation-play-state: paused;
+  }
+  @keyframes marquee{
+    0%{ transform: translateX(0); }
+    100%{ transform: translateX(-50%); }
+  }
+  .marquee-card{
+    flex-shrink: 0;
+    border: 2px solid var(--ink);
+    border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+    box-shadow: 5px 5px 0 var(--ink);
+    overflow: hidden;
+    background: var(--card);
+  }
+  .marquee-card img{
+    display: block;
+    height: 360px;
+    width: auto;
+  }
+  /* ---------- VERSE ---------- */
+  .verse-block{
+    max-width: 480px;
+    margin: 32px auto 0;
+    text-align: center;
+    padding: 24px 20px;
+    border-top: 2px dashed var(--ink);
+    border-bottom: 2px dashed var(--ink);
+  }
+  .verse-text{
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--ink);
+    line-height: 1.8;
+    margin: 0 0 12px;
+    word-break: keep-all;
+  }
+  .verse-cite{
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--coral);
+    font-style: normal;
+  }
+
+  .countdown{
+    display:flex; align-items:center; gap:6px;
+    margin-top:10px;
+  }
+  .countdown-unit{
+    display:flex; flex-direction:column; align-items:center; gap:1px;
+  }
+  .countdown-num{
+    font-family:'Gaegu'; font-weight:700; font-size:1.7rem;
+    line-height:1; color: var(--coral);
+  }
+  .countdown-label{
+    font-size:0.68rem; color: var(--ink-soft); letter-spacing:0.3px;
+  }
+  .countdown-sep{
+    font-family:'Gaegu'; font-weight:700; font-size:1.5rem;
+    color: var(--ink-soft); margin-bottom:12px;
+  }
 
   /* 손그림 구분선 */
   .divider{ width:100%; height:22px; margin: 6px 0; }
@@ -261,6 +339,15 @@
   <div class="live-card sticker">
     <div class="live-label"><span class="dot"></span><span id="liveLabel">D-DAY 계산 중</span></div>
     <div class="live-title" id="liveTitle">잠시만요...</div>
+    <div class="countdown" id="countdown" style="display:none">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">일</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">시</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">분</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">초</span></div>
+    </div>
     <div class="live-sub" id="liveSub"></div>
   </div>
   </div>
@@ -274,12 +361,19 @@
       <div class="eyebrow hand">표어</div>
       <h2>그리스도, 우리의 소망</h2>
     </div>
-    <img src="theme.jpg" alt="표어: 그리스도, 우리의 소망 (롬 5:5)" style="display:block;width:100%;max-width:420px;margin:0 auto;border:2px solid var(--ink);border-radius:255px 18px 225px 18px / 18px 225px 18px 255px;box-shadow:5px 5px 0 var(--ink);">
-    <blockquote style="max-width:480px;margin:28px auto 0;text-align:center;padding:0 12px;">
-      <p style="font-family:'Gaegu',cursive;font-weight:700;font-size:1.25rem;color:var(--ink);line-height:1.8;margin:0 0 10px;">
-        "소망이 우리를 부끄럽게 하지 아니함은<br>우리에게 주신 성령으로 말미암아<br>하나님의 사랑이 우리 마음에 부은 바 됨이니"
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="marquee-card"><img src="theme.jpg" alt="표어 이미지"></div>
+        <div class="marquee-card"><img src="honbo1.png" alt="홍보물"></div>
+        <div class="marquee-card"><img src="theme.jpg" alt="표어 이미지"></div>
+        <div class="marquee-card"><img src="honbo1.png" alt="홍보물"></div>
+      </div>
+    </div>
+    <blockquote class="verse-block">
+      <p class="verse-text">
+        "소망이 우리를 부끄럽게 하지 아니함은 우리에게 주신 성령으로 말미암아 하나님의 사랑이 우리 마음에 부은 바 됨이니"
       </p>
-      <cite style="font-size:0.95rem;color:var(--coral);font-family:'Gaegu',cursive;font-weight:700;font-style:normal;">— 로마서 5:5 (개역개정)</cite>
+      <cite class="verse-cite">— 로마서 5:5 (개역개정)</cite>
     </blockquote>
   </div>
 </section>
@@ -328,7 +422,8 @@
       <div class="eyebrow hand">짐 챙기기</div>
       <h2>준비물 체크리스트</h2>
     </div>
-    <p class="check-note">공식 안내는 아니고 참고용이에요. 체크하면 본인 기기에 저장 됩니다.</p>
+    <p class="check-note">해당 자료는 참고용이에요.</p>
+    <p class="check-note">본인에게 필요한 물품은 각자 준비해주세요 !</p>
     <div class="check-grid" id="checkGrid">
       <label class="check-item"><input type="checkbox" data-key="cap"><span>수영모 / 야구모자</span></label>
       <label class="check-item"><input type="checkbox" data-key="swim"><span>수영복 또는 래쉬가드</span></label>
@@ -482,6 +577,8 @@
     });
   });
 
+  function pad(n){ return String(n).padStart(2,'0'); }
+
   function updateLive(){
     const now = new Date();
     const start = new Date("2026-08-16T16:00:00+09:00");
@@ -489,19 +586,42 @@
     const label = document.getElementById('liveLabel');
     const title = document.getElementById('liveTitle');
     const sub = document.getElementById('liveSub');
+    const countdown = document.getElementById('countdown');
 
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const startDay = new Date(2026, 7, 16);
-    if(today.getTime() === startDay.getTime() && now < start){
+
+    if(now < start){
+      const diff = start - now;
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+
       label.textContent = "D-DAY";
-      title.textContent = "오늘 출발이에요!";
-      sub.textContent = "2026. 8. 16(일) 16:00 출발";
-    } else if(now < start){
-      const days = (startDay - today) / 86400000;
-      label.textContent = "D-DAY";
-      title.textContent = `수련회까지 ${days}일 남았어요`;
-      sub.textContent = "2026. 8. 16(일) 16:00 출발";
+      if(today.getTime() === startDay.getTime()){
+        countdown.style.display = 'flex';
+        document.getElementById('cd-days').textContent = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent = pad(mins);
+        document.getElementById('cd-secs').textContent = pad(secs);
+        title.textContent = "오늘 출발이에요!";
+        sub.textContent = "";
+      } else if(days < 3){
+        countdown.style.display = 'flex';
+        document.getElementById('cd-days').textContent = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent = pad(mins);
+        document.getElementById('cd-secs').textContent = pad(secs);
+        title.textContent = "수련회까지";
+        sub.textContent = "";
+      } else {
+        countdown.style.display = 'none';
+        title.textContent = `수련회까지 ${days}일 남았어요`;
+        sub.textContent = "2026. 8. 16(일) 16:00 출발";
+      }
     } else if(now >= start && now < end){
+      countdown.style.display = 'none';
       label.textContent = "지금 수련회 중";
       let current = null;
       schedule.forEach(day => day.items.forEach(it => {
@@ -511,13 +631,14 @@
       title.textContent = current ? current.title : "쉬는 시간";
       sub.textContent = current ? current.time : "";
     } else {
+      countdown.style.display = 'none';
       label.textContent = "수련회 종료";
       title.textContent = "함께한 시간, 감사합니다";
       sub.textContent = "";
     }
   }
   updateLive();
-  setInterval(updateLive, 30000);
+  setInterval(updateLive, 1000);
 
   const checkItems = document.querySelectorAll('.check-item input');
   checkItems.forEach(cb => {
