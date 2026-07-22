@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>26년도 다니엘 청년부 여름 수련회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg: #0E3B36;
+    --bg-card: #123F3A;
+    --bg-card-hi: #16504A;
+    --sun: #F5B942;
+    --coral: #F2643B;
+    --ivory: #F7F3E8;
+    --muted: #9FC2BB;
+    --line: rgba(247,243,232,0.14);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ivory);
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+  h1,h2,h3, .display{
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  .hand{ font-family:'Gaegu', cursive; }
+  .wrap{ max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    min-height: 92vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    padding: 60px 24px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(245,185,66,0.18), transparent 45%),
+      radial-gradient(circle at 80% 75%, rgba(242,100,59,0.16), transparent 50%),
+      radial-gradient(circle at 50% 100%, rgba(159,194,187,0.10), transparent 60%);
+    animation: drift 14s ease-in-out infinite alternate;
+  }
+  @keyframes drift{
+    0%{ transform: translate(0,0) scale(1); }
+    100%{ transform: translate(-2%, 2%) scale(1.06); }
+  }
+  .eyebrow{
+    position:relative;
+    color: var(--sun);
+    font-family:'Gaegu', cursive;
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+  }
+  .hero h1{
+    position:relative;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    margin: 0 0 18px;
+    color: var(--ivory);
+  }
+  .hero h1 span{ color: var(--sun); }
+  .hero p.sub{
+    position:relative;
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 34px;
+  }
+  .badge-row{
+    position:relative;
+    display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+    margin-bottom: 40px;
+  }
+  .badge{
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    background: rgba(247,243,232,0.03);
+  }
+  .live-card{
+    position:relative;
+    background: var(--bg-card-hi);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 22px 30px;
+    min-width: 280px;
+  }
+  .live-label{
+    display:flex; align-items:center; gap:8px;
+    font-size: 0.85rem; color: var(--muted); margin-bottom:8px;
+  }
+  .dot{
+    width:9px; height:9px; border-radius:50%;
+    background: var(--coral);
+    box-shadow: 0 0 0 0 rgba(242,100,59,0.6);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(242,100,59,0.55); }
+    70%{ box-shadow: 0 0 0 10px rgba(242,100,59,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(242,100,59,0); }
+  }
+  .live-title{ font-family:'Black Han Sans'; font-size:1.4rem; color: var(--sun); }
+  .live-sub{ font-size:0.9rem; color: var(--muted); margin-top:4px; }
+
+  /* ---------- WAVE DIVIDER ---------- */
+  .wave{ display:block; width:100%; height:60px; }
+  .wave path{ fill: var(--bg-card); }
+
+  /* ---------- SECTION ---------- */
+  section{ padding: 70px 0; }
+  .section-head{ margin-bottom: 36px; text-align:center; }
+  .section-head .eyebrow{ margin-bottom: 6px; }
+  .section-head h2{ font-size: clamp(1.6rem, 4vw, 2.3rem); margin:0; }
+
+  /* ---------- SCHEDULE ---------- */
+  .schedule-bg{ background: var(--bg-card); }
+  .day-tabs{
+    display:flex; justify-content:center; gap:10px; margin-bottom: 30px; flex-wrap:wrap;
+  }
+  .day-tab{
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-family:'Pretendard';
+    font-weight:600;
+    cursor:pointer;
+    font-size:0.95rem;
+  }
+  .day-tab.active{
+    background: var(--sun);
+    color: #1A1204;
+    border-color: var(--sun);
+  }
+  .timeline{ position:relative; padding-left: 26px; display:none; }
+  .timeline.active{ display:block; }
+  .timeline::before{
+    content:"";
+    position:absolute; left:6px; top:6px; bottom:6px;
+    width:2px;
+    background: var(--line);
+  }
+  .item{ position:relative; padding: 0 0 26px 20px; }
+  .item::before{
+    content:"";
+    position:absolute; left:-26px; top:4px;
+    width:12px; height:12px; border-radius:50%;
+    background: var(--bg-card-hi);
+    border: 2px solid var(--muted);
+  }
+  .item.now::before{
+    background: var(--coral);
+    border-color: var(--coral);
+    box-shadow: 0 0 0 5px rgba(242,100,59,0.2);
+  }
+  .item.now .item-title{ color: var(--coral); }
+  .item-time{ font-size: 0.82rem; color: var(--sun); font-weight:700; letter-spacing:0.3px; }
+  .item-title{ font-size: 1.05rem; font-weight:700; margin-top:2px; }
+  .item-tag{
+    display:inline-block; margin-top:6px;
+    font-size:0.75rem; color: var(--bg);
+    background: var(--sun);
+    padding: 2px 9px; border-radius: 6px;
+    font-family:'Gaegu'; font-weight:700;
+  }
+
+  /* ---------- INFO CARDS ---------- */
+  .info-grid{
+    display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 18px;
+  }
+  .info-card{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .info-card .k{ color: var(--muted); font-size: 0.82rem; margin-bottom:6px; }
+  .info-card .v{ font-size: 1.15rem; font-weight:700; }
+  .info-card .v small{ display:block; font-size:0.8rem; color:var(--muted); font-weight:400; margin-top:4px; }
+
+  /* ---------- CHECKLIST ---------- */
+  .checklist-bg{ background: var(--bg-card); }
+  .check-note{
+    text-align:center; color: var(--muted); font-size:0.85rem; margin-top:-18px; margin-bottom:30px;
+  }
+  .check-grid{
+    display:grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: 12px;
+  }
+  .check-item{
+    display:flex; align-items:center; gap:10px;
+    background: var(--bg-card-hi);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor:pointer;
+    user-select:none;
+    transition: opacity 0.15s;
+  }
+  .check-item input{ width:18px; height:18px; accent-color: var(--coral); flex-shrink:0; }
+  .check-item.checked{ opacity: 0.45; text-decoration: line-through; }
+  .check-item span{ font-size:0.92rem; }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+  }
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center;
+    cursor:pointer; font-weight:700; font-size:1rem;
+  }
+  .faq-q::after{ content:"+"; color: var(--sun); font-size:1.3rem; }
+  .faq-item.open .faq-q::after{ content:"−"; }
+  .faq-a{
+    max-height:0; overflow:hidden; color: var(--muted); font-size:0.92rem;
+    transition: max-height 0.25s ease;
+  }
+  .faq-item.open .faq-a{ max-height: 200px; margin-top:10px; }
+
+  /* ---------- PRAYER ---------- */
+  .prayer{
+    text-align:center;
+    background: var(--bg-card-hi);
+    border-radius: 20px;
+    padding: 40px 24px;
+    border: 1px solid var(--line);
+  }
+  .prayer .hand{ font-size:1.3rem; color: var(--sun); }
+
+  footer{
+    text-align:center; padding: 40px 24px 60px;
+    color: var(--muted); font-size: 0.82rem;
+  }
+
+  @media (max-width:600px){
+    section{ padding: 50px 0; }
+    .live-card{ min-width: unset; width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="eyebrow hand">다니엘 청년부</div>
+  <h1>26년도 여름 수련회<br><span>물놀이 &amp; 은혜</span></h1>
+  <p class="sub">2026. 8. 16(일) – 8. 18(화) · 히든밸리 송추</p>
+  <div class="badge-row">
+    <span class="badge">📅 8/16(일) ~ 8/18(화), 2박 3일</span>
+    <span class="badge">🏊 물놀이 8/17(월) 13:00–17:00</span>
+    <span class="badge">📍 히든밸리 송추</span>
+  </div>
+  <div class="live-card">
+    <div class="live-label"><span class="dot"></span><span id="liveLabel">D-DAY 계산 중</span></div>
+    <div class="live-title" id="liveTitle">잠시만요...</div>
+    <div class="live-sub" id="liveSub"></div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,70 900,-10 1200,30 L1200,60 L0,60 Z"></path></svg>
+
+<section class="schedule-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">일정표</div>
+      <h2>Program &amp; Schedule</h2>
+    </div>
+    <div class="day-tabs">
+      <button class="day-tab" data-day="0">8/16 (일)</button>
+      <button class="day-tab" data-day="1">8/17 (월)</button>
+      <button class="day-tab" data-day="2">8/18 (화)</button>
+    </div>
+    <div id="timelines"></div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" style="transform:rotate(180deg)"><path d="M0,30 C300,70 900,-10 1200,30 L1200,60 L0,60 Z" fill="var(--bg)"></path></svg>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">물놀이 정보</div>
+      <h2>히든밸리 송추</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="k">예약 방법</div>
+        <div class="v">야옹상회 앱<small>선착순 배정이 아닌 사전 자리 지정 예약</small></div>
+      </div>
+      <div class="info-card">
+        <div class="k">운영 시간</div>
+        <div class="v">09:00 – 17:00<small>퇴수 16:20 · 수련회 물놀이는 13:00–17:00</small></div>
+      </div>
+      <div class="info-card">
+        <div class="k">이동 거리</div>
+        <div class="v">편도 약 15분<small>약 7km</small></div>
+      </div>
+      <div class="info-card">
+        <div class="k">평상</div>
+        <div class="v">최대 8인 / 70,000원<small>8월 17일 기준 주간 가격</small></div>
+      </div>
+      <div class="info-card">
+        <div class="k">복장</div>
+        <div class="v">수영모 또는 야구모자<small>수영복 또는 래쉬가드 착용 후 이용 가능</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="checklist-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">짐 챙기기</div>
+      <h2>준비물 체크리스트</h2>
+    </div>
+    <p class="check-note">공식 준비물 안내는 아니고, 물놀이 정보 기준 참고용입니다. 체크한 항목은 이 브라우저에 저장돼요.</p>
+    <div class="check-grid" id="checkGrid">
+      <label class="check-item"><input type="checkbox" data-key="cap">수영모 / 야구모자</label>
+      <label class="check-item"><input type="checkbox" data-key="swim">수영복 또는 래쉬가드</label>
+      <label class="check-item"><input type="checkbox" data-key="towel">수건 / 여벌 옷</label>
+      <label class="check-item"><input type="checkbox" data-key="toiletry">세면도구</label>
+      <label class="check-item"><input type="checkbox" data-key="bible">성경 / 필기구</label>
+      <label class="check-item"><input type="checkbox" data-key="meds">개인 상비약</label>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">자주 묻는 질문</div>
+      <h2>FAQ</h2>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="prayer">
+      <div class="hand">🙏 함께 기도해요</div>
+      <h3 style="margin:10px 0;">중보기도 안내</h3>
+      <p style="color:var(--muted); max-width:480px; margin:0 auto;">7월 26일부터 기도팀에서 한 주에 한 명씩 기도제목을 담당해 수련회를 위해 기도합니다.</p>
+    </div>
+  </div>
+</section>
+
+<footer>26년도 다니엘 청년부 여름 수련회</footer>
+
+<script>
+  // ---------- 일정 데이터 ----------
+  const schedule = [
+    { date: "2026-08-16", items: [
+      { time:"16:00–17:00", title:"수련회 출발 및 도착" },
+      { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)" },
+      { time:"19:00–21:00", title:"저녁 집회" },
+    ]},
+    { date: "2026-08-17", items: [
+      { time:"07:00–08:00", title:"기상 및 세면, 조식" },
+      { time:"08:00–09:00", title:"아침 QT" },
+      { time:"09:00–10:00", title:"오전 활동" },
+      { time:"10:00–12:00", title:"특강" },
+      { time:"12:00–13:00", title:"중식" },
+      { time:"13:00–17:00", title:"물놀이 (이동시간 포함)", tag:"히든밸리 송추" },
+      { time:"17:00–18:00", title:"휴식" },
+      { time:"18:00–19:00", title:"석식" },
+      { time:"19:00–21:00", title:"저녁 집회" },
+    ]},
+    { date: "2026-08-18", items: [
+      { time:"07:00–08:00", title:"기상 및 세면, 조식" },
+      { time:"08:00–09:00", title:"아침 QT, 폐회 예배" },
+      { time:"09:00–09:50", title:"수련회 뒷정리" },
+      { time:"09:50–11:00", title:"교회 출발 및 도착" },
+      { time:"11:00–12:00", title:"교회 뒷정리" },
+      { time:"12:00–13:00", title:"중식" },
+      { time:"13:00–", title:"해산" },
+    ]},
+  ];
+
+  const tabs = document.querySelectorAll('.day-tab');
+  const timelineWrap = document.getElementById('timelines');
+
+  function parseRange(dateStr, timeStr){
+    const [startStr, endStr] = timeStr.split('–');
+    const mk = (t) => {
+      if(!t) return null;
+      const [h,m] = t.split(':').map(Number);
+      const d = new Date(dateStr + "T00:00:00+09:00");
+      d.setHours(h, m || 0, 0, 0);
+      return d;
+    };
+    return { start: mk(startStr), end: endStr ? mk(endStr) : null };
+  }
+
+  function render(){
+    const now = new Date();
+    timelineWrap.innerHTML = '';
+    schedule.forEach((day, di) => {
+      const tl = document.createElement('div');
+      tl.className = 'timeline' + (di === 0 ? ' active' : '');
+      tl.dataset.day = di;
+      day.items.forEach(it => {
+        const { start, end } = parseRange(day.date, it.time);
+        const isNow = start && end && now >= start && now < end;
+        const div = document.createElement('div');
+        div.className = 'item' + (isNow ? ' now' : '');
+        div.innerHTML = `<div class="item-time">${it.time}</div>
+          <div class="item-title">${it.title}</div>
+          ${it.tag ? `<span class="item-tag">${it.tag}</span>` : ''}
+          ${isNow ? `<span class="item-tag" style="background:var(--coral);color:#fff;margin-left:6px;">지금 진행중</span>` : ''}`;
+        tl.appendChild(div);
+      });
+      timelineWrap.appendChild(tl);
+    });
+  }
+  render();
+
+  tabs[0].classList.add('active');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.timeline').forEach(tl => {
+        tl.classList.toggle('active', tl.dataset.day === tab.dataset.day);
+      });
+    });
+  });
+
+  // ---------- 라이브 카드 (D-Day / 지금 진행중) ----------
+  function updateLive(){
+    const now = new Date();
+    const start = new Date("2026-08-16T16:00:00+09:00");
+    const end = new Date("2026-08-18T13:00:00+09:00");
+    const label = document.getElementById('liveLabel');
+    const title = document.getElementById('liveTitle');
+    const sub = document.getElementById('liveSub');
+
+    if(now < start){
+      const days = Math.ceil((start - now) / 86400000);
+      label.textContent = "D-DAY";
+      title.textContent = `수련회까지 ${days}일 남았어요`;
+      sub.textContent = "2026. 8. 16(일) 16:00 출발";
+    } else if(now >= start && now < end){
+      label.textContent = "LIVE · 수련회 진행중";
+      let current = null;
+      schedule.forEach(day => day.items.forEach(it => {
+        const { start:s, end:e } = parseRange(day.date, it.time);
+        if(s && e && now >= s && now < e) current = it;
+      }));
+      title.textContent = current ? current.title : "쉬는 시간";
+      sub.textContent = current ? current.time : "";
+    } else {
+      label.textContent = "수련회 종료";
+      title.textContent = "함께한 은혜의 시간, 감사합니다";
+      sub.textContent = "";
+    }
+  }
+  updateLive();
+  setInterval(updateLive, 30000);
+
+  // ---------- 체크리스트 ----------
+  const checkItems = document.querySelectorAll('.check-item input');
+  checkItems.forEach(cb => {
+    const key = 'retreat-' + cb.dataset.key;
+    try{
+      cb.checked = localStorage.getItem(key) === '1';
+      cb.closest('.check-item').classList.toggle('checked', cb.checked);
+    }catch(e){}
+    cb.addEventListener('change', () => {
+      cb.closest('.check-item').classList.toggle('checked', cb.checked);
+      try{ localStorage.setItem(key, cb.checked ? '1' : '0'); }catch(e){}
+    });
+  });
+
+  // ---------- FAQ ----------
+  const faqs = [
+    { q:"물놀이는 언제, 어디서 하나요?", a:"8월 17일(월) 13:00~17:00, 히든밸리 송추에서 진행합니다. 교회에서 편도 약 15분(7km) 거리예요." },
+    { q:"물놀이 준비물은 무엇인가요?", a:"수영모 또는 야구모자, 그리고 수영복 또는 래쉬가드를 착용해야 풀장을 이용할 수 있습니다." },
+    { q:"물놀이 자리는 어떻게 예약하나요?", a:"야옹상회 앱에서 미리 자리를 지정해 예약하는 방식이에요. 현장 선착순이 아닙니다." },
+    { q:"중보기도는 어떻게 참여할 수 있나요?", a:"7월 26일부터 기도팀에서 한 주에 한 명씩 기도제목을 맡아 수련회를 위해 기도합니다." },
+  ];
+  const faqList = document.getElementById('faqList');
+  faqs.forEach(f => {
+    const el = document.createElement('div');
+    el.className = 'faq-item';
+    el.innerHTML = `<div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div>`;
+    el.querySelector('.faq-q').addEventListener('click', () => el.classList.toggle('open'));
+    faqList.appendChild(el);
+  });
+</script>
+</body>
+</html>
