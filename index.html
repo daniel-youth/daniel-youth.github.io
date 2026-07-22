@@ -380,9 +380,9 @@
       <div class="live-sub" id="liveSub"></div>
     </div>
     <div style="display:flex;gap:14px;width:100%;">
-      <a class="group-card-btn sticker locked" href="#" onclick="return false;"> <!-- 이 부분 나중에 신청 링크로 변경 -->
-        <div class="live-label"><span>🔒</span><span>신청서 작성</span></div>
-        <div class="live-title">신청 링크 추후 공개</div>
+      <a id="registerBtn" class="group-card-btn sticker locked" href="#" onclick="return false;">
+        <div class="live-label"><span>🔒</span><span>신청하기</span></div>
+        <div class="live-title">추후 공개</div>
       </a>
       <a id="groupBtn" class="group-card-btn sticker locked" href="#" onclick="return false;">
         <div class="live-label"><span>🔒</span><span>조편성</span></div>
@@ -417,7 +417,7 @@
     </div>
     <blockquote class="verse-block">
       <p class="verse-text">
-        "소망이 우리를 부끄럽게 하지 아니함은 우리에게 주신 성령으로 말미암아 하나님의 사랑이 우리 마음에 부은 바 됨이니"
+        "소망이 우리를 부끄럽게 하지 아니함은<br>우리에게 주신 성령으로 말미암아<br>하나님의 사랑이 우리 마음에 부은 바 됨이니"
       </p>
       <cite class="verse-cite">— 로마서 5:5 (개역개정)</cite>
     </blockquote>
@@ -697,6 +697,22 @@
       btn.href = 'groups.html';
       btn.onclick = null;
       btn.innerHTML = '<div class="live-label"><span>👥</span><span>조편성</span></div><div class="live-title">조편성 보러가기 ↗</div>';
+    }
+  })();
+
+  (function(){
+    const registerUrl = ""; // 신청 링크 여기에 추가
+    const btn = document.getElementById('registerBtn');
+    const end = new Date("2026-08-18T13:00:00+09:00");
+    const now = new Date();
+    if(registerUrl && now < end){
+      btn.classList.remove('locked');
+      btn.classList.add('active');
+      btn.href = registerUrl;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.onclick = null;
+      btn.innerHTML = '<div class="live-label"><span>✏️</span><span>신청하기</span></div><div class="live-title">지금 신청하기 ↗</div>';
     }
   })();
 
