@@ -617,7 +617,7 @@
         sub.textContent = "";
       } else {
         countdown.style.display = 'none';
-        title.textContent = `수련회까지 ${days}일 남았어요`;
+        title.innerHTML = `수련회까지 <span style="color:var(--coral)">${days}</span>일 남았어요`;
         sub.textContent = "2026. 8. 16(일) 16:00 출발";
       }
     } else if(now >= start && now < end){
