@@ -162,13 +162,21 @@
   }
 
   /* ---------- SONG LIST ---------- */
-  .song-list{
-    list-style:none; margin:8px 0 0; padding:6px 12px;
-    background:var(--paper); border-left:3px solid var(--coral);
-    border-radius:0 8px 8px 0;
+  .song-wrap{ margin:10px 0 0; padding:12px 14px; background:var(--paper); border-left:3px solid var(--coral); border-radius:0 8px 8px 0; }
+  .song-playlist{
+    display:inline-block; margin-bottom:10px;
+    font-family:'Gaegu',cursive; font-weight:700; font-size:0.85rem;
+    color:#fff; background:var(--coral);
+    padding:3px 12px; border-radius:999px;
+    text-decoration:none;
   }
-  .song-list li{ font-size:0.88rem; color:var(--ink); padding:2px 0; }
+  .song-list{ list-style:none; margin:0; padding:0; }
+  .song-list li{ display:flex; align-items:center; gap:6px; font-size:0.88rem; color:var(--ink); padding:3px 0; }
   .song-list .song-tbd{ color:var(--ink-soft); font-style:italic; }
+  .song-num{ color:var(--coral); font-family:'Gaegu',cursive; font-weight:700; min-width:16px; }
+  .song-title{ flex:1; }
+  .song-tag{ font-size:0.75rem; color:var(--ink-soft); background:var(--paper); border:1px solid var(--ink-soft); border-radius:999px; padding:0 7px; flex-shrink:0; }
+  .song-team{ margin:10px 0 0; font-size:0.8rem; color:var(--ink-soft); border-top:1px dashed var(--ink-soft); padding-top:8px; line-height:1.7; }
 
   /* ---------- POOL LIST ---------- */
   .pool-list{
@@ -363,7 +371,19 @@
     { date: "2026-08-16", items: [
       { time:"16:00–17:00", title:"수련회 출발 및 도착" },
       { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)" },
-      { time:"19:00–21:00", title:"저녁 집회", songs:[] },
+      { time:"19:00–21:00", title:"저녁 집회",
+        playlist:"https://youtube.com/playlist?list=PLTJ6c5xQ22So&si=SPHio_yv2z8kJobh",
+        songs:[
+          { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
+          { title:"사랑을 나눠요", tag:"축복" },
+          { title:"Thank you lord", tag:"감사" },
+          { title:"주 사랑 놀라와", tag:"경배" },
+          { title:"보고 들은 자", tag:"결단" },
+          { title:"주 예수보다 더 귀한 것은 없네 + 내 안에 가장 귀한 것", tag:"고백" },
+          { title:"이것이 영원한 삶", tag:"경배" },
+        ],
+        team:"건반: 고예빈 / 드럼: 최중수 / 일렉: 박병돈\n싱어: 김영빈, 박지현, 양희선, 박성원\n워십: 백윤진, 이한별"
+      },
     ]},
     { date: "2026-08-17", items: [
       { time:"07:00–08:00", title:"기상 및 세면, 조식" },
@@ -374,7 +394,19 @@
       { time:"13:00–17:00", title:"물놀이 (이동시간 포함)", tag:"히든밸리 송추" },
       { time:"17:00–18:00", title:"휴식" },
       { time:"18:00–19:00", title:"석식" },
-      { time:"19:00–21:00", title:"저녁 집회", songs:[] },
+      { time:"19:00–21:00", title:"저녁 집회",
+        playlist:"https://youtube.com/playlist?list=PLc2GTK-CNu5Q&si=bzgUZaqjj3AAZHSa",
+        songs:[
+          { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
+          { title:"사랑을 나눠요", tag:"축복" },
+          { title:"보고 들은 자", tag:"결단" },
+          { title:"주와 함께 걸어가네", tag:"결단" },
+          { title:"빈 무덤", tag:"경배" },
+          { title:"내 삶의 이유라", tag:"경배" },
+          { title:"주님만 사랑하리 + 나의 모습 나의 소유", tag:"결단" },
+        ],
+        team:"건반: 고예빈 / 드럼: 최중수 / 일렉: 박병돈\n싱어: 윤희영, 박세인, 김영빈, 권지은, 박지현, 양희선, 김정민\n워십: 백윤진, 이한별"
+      },
     ]},
     { date: "2026-08-18", items: [
       { time:"07:00–08:00", title:"기상 및 세면, 조식" },
@@ -414,13 +446,19 @@
         const isNow = start && end && now >= start && now < end;
         const div = document.createElement('div');
         div.className = 'item' + (isNow ? ' now' : '');
-        const songsHtml = it.songs != null
-          ? `<ul class="song-list">${
-              it.songs.length
-                ? it.songs.map(s => `<li>${s}</li>`).join('')
-                : `<li class="song-tbd">찬양 목록 업데이트 예정</li>`
-            }</ul>`
-          : '';
+        let songsHtml = '';
+        if(it.songs != null){
+          const listItems = it.songs.length
+            ? it.songs.map((s,i) => `<li><span class="song-num">${i+1}</span><span class="song-title">${s.title}</span><span class="song-tag">${s.tag}</span></li>`).join('')
+            : `<li class="song-tbd">찬양 목록 업데이트 예정</li>`;
+          const playlistBtn = it.playlist
+            ? `<a class="song-playlist" href="${it.playlist}" target="_blank" rel="noopener">▶ 플레이리스트 보기</a>`
+            : '';
+          const teamHtml = it.team
+            ? `<p class="song-team">${it.team.replace(/\n/g,'<br>')}</p>`
+            : '';
+          songsHtml = `<div class="song-wrap">${playlistBtn}<ol class="song-list">${listItems}</ol>${teamHtml}</div>`;
+        }
         div.innerHTML = `<div class="item-time">${it.time}</div>
           <div class="item-title">${it.title}</div>
           ${it.tag ? `<span class="item-tag">${it.tag}</span>` : ''}
