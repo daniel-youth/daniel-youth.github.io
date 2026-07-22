@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조편성 — 다니엘 청년부 여름 수련회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --paper: #FBF7EF;
+    --card: #FFFFFF;
+    --ink: #1E1B16;
+    --ink-soft: #6B6459;
+    --coral: #F2643B;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    line-height:1.65;
+  }
+  h1,h2,h3{ font-family:'Gaegu', cursive; font-weight:700; }
+  .wrap{ max-width: 820px; margin:0 auto; padding: 0 22px; }
+
+  .top-bar{
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .back-btn{
+    font-family:'Gaegu', cursive;
+    font-weight:700;
+    font-size:0.95rem;
+    color: var(--ink);
+    text-decoration: none;
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    padding: 6px 14px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .back-btn:hover{ background:var(--ink); color:var(--paper); }
+
+  .page-head{
+    text-align:center;
+    padding: 10px 0 36px;
+  }
+  .page-head .eyebrow{
+    font-family:'Gaegu', cursive;
+    font-weight:700;
+    color: var(--coral);
+    font-size:1.2rem;
+    margin-bottom:4px;
+  }
+  .page-head h1{ font-size: clamp(1.8rem, 5vw, 2.6rem); margin:0; }
+
+  .group-grid{
+    display: flex;
+    gap: 0;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* ---------- EMERGENCY ---------- */
+  .emergency-section{
+    margin: 32px 0 60px;
+  }
+  .emergency-head{
+    font-family:'Gaegu', cursive;
+    font-weight:700;
+    font-size:1.3rem;
+    margin: 0 0 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .emergency-list{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .emergency-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+    background:var(--card);
+    border:2px solid var(--ink);
+    border-radius:12px;
+  }
+  .emergency-name{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+    font-size:0.95rem;
+  }
+  .emergency-role{
+    font-size:0.72rem;
+    color:#fff;
+    background:var(--ink-soft);
+    padding:2px 8px;
+    border-radius:999px;
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+  }
+  .emergency-role.vip{ background:var(--coral); }
+  .emergency-role.leader{ background:var(--ink); }
+  .emergency-tel{
+    font-family:'Gaegu', cursive;
+    font-weight:700;
+    font-size:1rem;
+    color:var(--ink-soft);
+    text-decoration:none;
+  }
+  .emergency-tel:not([href="#"]):hover{ color:var(--coral); }
+  .group-card{
+    flex: 1;
+    min-width: 0;
+    padding: 20px 12px;
+    border-right: 2px solid var(--ink);
+    background: var(--card);
+  }
+  .group-card:last-child{ border-right: none; }
+  .group-card:nth-child(even){ background: var(--paper); }
+  .group-name{
+    font-family:'Gaegu', cursive;
+    font-weight:700;
+    font-size:1.3rem;
+    color: var(--coral);
+    margin:0 0 6px;
+    text-align:center;
+  }
+  .member-list{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .member-list li{
+    font-size:0.88rem;
+    padding: 5px 6px;
+    border-radius:6px;
+    text-align:center;
+    word-break:keep-all;
+  }
+  .member-list li.is-leader{
+    font-weight:700;
+    background: rgba(242,100,59,0.08);
+  }
+  .leader-badge{
+    font-family:'Pretendard', -apple-system, sans-serif;
+    font-weight:700;
+    font-size:0.65rem;
+    background: var(--coral);
+    color:#fff;
+    padding:1px 6px;
+    border-radius:999px;
+    display:block;
+    margin-bottom:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back-btn" href="index.html">← 돌아가기</a>
+</div>
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">2026 여름 수련회</div>
+    <h1>여름 수련회 조편성</h1>
+  </div>
+
+  <div class="group-grid">
+
+    <div class="group-card">
+      <div class="group-name">1조</div>
+      <ul class="member-list">
+        <li class="is-leader"><span class="leader-badge">조장</span>김영빈</li>
+        <li>이름</li>
+        <li>이름</li>
+        <li>이름</li>
+      </ul>
+    </div>
+
+    <div class="group-card">
+      <div class="group-name">2조</div>
+      <ul class="member-list">
+        <li class="is-leader"><span class="leader-badge">조장</span>황서영</li>
+        <li>이름</li>
+        <li>이름</li>
+        <li>이름</li>
+      </ul>
+    </div>
+
+    <div class="group-card">
+      <div class="group-name">3조</div>
+      <ul class="member-list">
+        <li class="is-leader"><span class="leader-badge">조장</span>정재희</li>
+        <li>이름</li>
+        <li>이름</li>
+        <li>이름</li>
+      </ul>
+    </div>
+
+    <div class="group-card">
+      <div class="group-name">4조</div>
+      <ul class="member-list">
+        <li class="is-leader"><span class="leader-badge">조장</span>홍세호</li>
+        <li>이름</li>
+        <li>이름</li>
+        <li>이름</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="emergency-section">
+    <div class="emergency-head">📞 비상연락망</div>
+    <ul class="emergency-list">
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role vip">목사님</span>서성진 목사님</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role vip">부장집사님</span>김인걸 부장 집사님</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role leader">1조장</span>김영빈 청년</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role leader">2조장</span>황서영 청년</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role leader">3조장</span>정재희 청년</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role leader">4조장</span>홍세호 청년</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role">운영위원</span>고예빈 청년</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+      <li class="emergency-item">
+        <div class="emergency-name"><span class="emergency-role">예배위원</span>최중수 청년</div>
+        <a class="emergency-tel" href="#">번호 추가 예정</a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

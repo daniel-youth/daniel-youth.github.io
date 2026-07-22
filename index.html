@@ -54,7 +54,7 @@
   .hero .tagline{
     color: var(--coral);
     font-family:'Gaegu'; font-weight:700;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin: 2px 0 6px;
   }
   .hero .date{
@@ -90,15 +90,21 @@
     font-family:'Gaegu'; font-weight:700;
     color: var(--ink);
   }
+  .cards-row{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
   .live-card{
-    display:inline-flex;
+    display:flex;
     flex-direction:column;
     align-items:center;
     gap:4px;
-    padding: 18px 28px;
-    margin: 0 auto;
+    padding: 18px 16px;
     text-align:center;
-    min-width: 260px;
+    flex: 1;
+    min-width: 0;
   }
   .live-label{
     display:flex; align-items:center; gap:8px;
@@ -115,7 +121,7 @@
     70%{ box-shadow: 0 0 0 9px rgba(242,100,59,0); }
     100%{ box-shadow: 0 0 0 0 rgba(242,100,59,0); }
   }
-  .live-title{ font-family:'Gaegu'; font-weight:700; font-size:1.35rem; }
+  .live-title{ font-family:'Gaegu'; font-weight:700; font-size:clamp(0.9rem, 3.8vw, 1.35rem); word-break:keep-all; line-height:1.4; }
   .live-sub{ font-size:0.88rem; color: var(--ink-soft); }
 
   /* ---------- MARQUEE ---------- */
@@ -318,8 +324,29 @@
 
   footer{ text-align:center; padding: 30px 24px 50px; color: var(--ink-soft); font-size:0.8rem; }
 
-  @media (max-width:600px){
-    .live-card{ min-width:unset; width:100%; }
+  /* ---------- GROUP CARD ---------- */
+  .group-card-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 18px 16px;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .group-card-btn.locked{
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .group-card-btn.active:hover{
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--ink);
   }
 </style>
 </head>
@@ -328,27 +355,34 @@
 <section class="hero">
   <img src="logo.png" alt="다니엘 청년부 로고" class="logo">
   <h1>2026년 다니엘 청년부 여름 수련회</h1>
-  <p class="tagline">말씀과 예배로 채우는 2박 3일</p>
+  <p class="tagline">"그리스도, 우리의 소망"</p>
   <div class="hero-info">
   <ol class="info-list">
     <li><b>장소</b> : 양주 크라운 해태 수련원</li>
     <li><b>위치</b> : 경기도 양주시 백석읍 권율로 721</li>
     <li><b>날짜</b> : 2026. 8. 16(일) – 8. 18(화)</li>
-    <li><b>회비 및 입금 계좌</b> : 추후 업데이트 됩니다</li>
+    <li><b>회비</b> : 추후 업데이트 됩니다</li>
+    <li><b>회비 입금 계좌</b> : 추후 업데이트 됩니다</li>
   </ol>
-  <div class="live-card sticker">
-    <div class="live-label"><span class="dot"></span><span id="liveLabel">D-DAY 계산 중</span></div>
-    <div class="live-title" id="liveTitle">잠시만요...</div>
-    <div class="countdown" id="countdown" style="display:none">
-      <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">일</span></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">시</span></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">분</span></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">초</span></div>
+  <div class="cards-row">
+    <div class="live-card sticker">
+      <div class="live-label"><span class="dot"></span><span id="liveLabel">D-DAY 계산 중</span></div>
+      <div class="live-title" id="liveTitle">잠시만요...</div>
+      <div class="countdown" id="countdown" style="display:none">
+        <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">일</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">시</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">분</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">초</span></div>
+      </div>
+      <div class="live-sub" id="liveSub"></div>
     </div>
-    <div class="live-sub" id="liveSub"></div>
+    <a id="groupBtn" class="group-card-btn sticker locked" href="#" onclick="return false;">
+      <div class="live-label"><span>🔒</span><span>조편성</span></div>
+      <div class="live-title">수련회 당일 공개</div>
+    </a>
   </div>
   </div>
 </section>
@@ -431,12 +465,14 @@
     <p class="check-note">해당 자료는 참고용이에요.</p>
     <p class="check-note">본인에게 필요한 물품은 각자 준비해주세요 !</p>
     <div class="check-grid" id="checkGrid">
+      <label class="check-item checked" style="cursor:default;" onclick="return false;"><input type="checkbox" checked style="cursor:default;"><span>열심히 해야겠다는 마음가짐</span></label>
       <label class="check-item"><input type="checkbox" data-key="cap"><span>수영모 / 야구모자</span></label>
       <label class="check-item"><input type="checkbox" data-key="swim"><span>수영복 또는 래쉬가드</span></label>
       <label class="check-item"><input type="checkbox" data-key="towel"><span>수건 / 여벌 옷</span></label>
       <label class="check-item"><input type="checkbox" data-key="toiletry"><span>세면도구</span></label>
       <label class="check-item"><input type="checkbox" data-key="bible"><span>성경 / 필기구</span></label>
       <label class="check-item"><input type="checkbox" data-key="meds"><span>개인 상비약</span></label>
+      <label class="check-item"><input type="checkbox" data-key="meds"><span>기타 개인 물품</span></label>
     </div>
   </div>
 </section>
@@ -455,8 +491,9 @@
 
 <div class="see-you-wrap">
   <div class="see-you-box sticker">
+    <p class="see-you-text">두근 두근 설레는 마음으로</p>
     <p class="see-you-text">모두 수련회에서 만나요!</p>
-    <p class="see-you-sub">대화교회 다니엘 청년부 운영위 일동</p>
+    <p class="see-you-sub">대화교회 다니엘 청년부 운영위원회 일동</p>
   </div>
 </div>
 
@@ -470,9 +507,9 @@
 <script>
   const schedule = [
     { date: "2026-08-16", items: [
-      { time:"16:00–17:00", title:"수련회 출발 및 도착" },
-      { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)" },
-      { time:"19:00–21:00", title:"저녁 집회",
+      { time:"16:00–17:00", title:"수련회 출발 및 도착", emoji:"🚌" },
+      { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)", emoji:"🍽️" },
+      { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
         playlist:"https://youtube.com/playlist?list=PLTJ6c5xQ22So&si=SPHio_yv2z8kJobh",
         songs:[
           { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
@@ -487,15 +524,15 @@
       },
     ]},
     { date: "2026-08-17", items: [
-      { time:"07:00–08:00", title:"기상 및 세면, 조식" },
-      { time:"08:00–09:00", title:"아침 QT" },
-      { time:"09:00–10:00", title:"오전 활동" },
-      { time:"10:00–12:00", title:"특강" },
-      { time:"12:00–13:00", title:"중식" },
-      { time:"13:00–17:00", title:"물놀이 (이동시간 포함)", tag:"히든밸리 송추" },
-      { time:"17:00–18:00", title:"휴식" },
-      { time:"18:00–19:00", title:"석식" },
-      { time:"19:00–21:00", title:"저녁 집회",
+      { time:"07:00–08:00", title:"기상 및 세면, 조식", emoji:"🌅" },
+      { time:"08:00–09:00", title:"아침 QT", emoji:"📖" },
+      { time:"09:00–10:00", title:"오전 활동", emoji:"⚡" },
+      { time:"10:00–12:00", title:"특강", emoji:"🎤" },
+      { time:"12:00–13:00", title:"중식", emoji:"🍱" },
+      { time:"13:00–17:00", title:"물놀이 (이동시간 포함)", emoji:"🌊"},
+      { time:"17:00–18:00", title:"휴식", emoji:"😌" },
+      { time:"18:00–19:00", title:"석식", emoji:"🍽️" },
+      { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
         playlist:"https://youtube.com/playlist?list=PLc2GTK-CNu5Q&si=bzgUZaqjj3AAZHSa",
         songs:[
           { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
@@ -510,13 +547,13 @@
       },
     ]},
     { date: "2026-08-18", items: [
-      { time:"07:00–08:00", title:"기상 및 세면, 조식" },
-      { time:"08:00–09:00", title:"아침 QT, 폐회 예배" },
-      { time:"09:00–09:50", title:"수련회 뒷정리" },
-      { time:"09:50–11:00", title:"교회 출발 및 도착" },
-      { time:"11:00–12:00", title:"교회 뒷정리" },
-      { time:"12:00–13:00", title:"중식" },
-      { time:"13:00–", title:"해산" },
+      { time:"07:00–08:00", title:"기상 및 세면, 조식", emoji:"🌅" },
+      { time:"08:00–09:00", title:"아침 QT, 폐회 예배", emoji:"📖" },
+      { time:"09:00–09:50", title:"수련회 뒷정리", emoji:"🧹" },
+      { time:"09:50–11:00", title:"교회 출발 및 도착", emoji:"🚌" },
+      { time:"11:00–12:00", title:"교회 뒷정리", emoji:"🧹" },
+      { time:"12:00–13:00", title:"중식", emoji:"🍱" },
+      { time:"13:00–", title:"해산", emoji:"👋" },
     ]},
   ];
 
@@ -558,7 +595,7 @@
           songsHtml = `<div class="song-wrap">${playlistBtn}<ol class="song-list">${listItems}</ol></div>`;
         }
         div.innerHTML = `<div class="item-time">${it.time}</div>
-          <div class="item-title">${it.title}</div>
+          <div class="item-title">${it.emoji ? it.emoji + ' ' : ''}${it.title}</div>
           ${it.tag ? `<span class="item-tag">${it.tag}</span>` : ''}
           ${isNow ? `<span class="item-tag" style="background:var(--ink);">지금 진행중</span>` : ''}
           ${songsHtml}`;
@@ -643,7 +680,21 @@
   updateLive();
   setInterval(updateLive, 1000);
 
-  const checkItems = document.querySelectorAll('.check-item input');
+  (function(){
+    const btn = document.getElementById('groupBtn');
+    const start = new Date("2026-08-16T16:00:00+09:00");
+    const end = new Date("2026-08-18T13:00:00+09:00");
+    const now = new Date();
+    if(now >= start && now < end){
+      btn.classList.remove('locked');
+      btn.classList.add('active');
+      btn.href = 'groups.html';
+      btn.onclick = null;
+      btn.innerHTML = '<div class="live-label"><span>👥</span><span>조편성</span></div><div class="live-title">조편성 보러가기 ↗</div>';
+    }
+  })();
+
+  const checkItems = document.querySelectorAll('.check-item input[data-key]');
   checkItems.forEach(cb => {
     const key = 'retreat-' + cb.dataset.key;
     try{
@@ -657,10 +708,8 @@
   });
 
   const faqs = [
-    { q:"물놀이는 언제, 어디서 하나요?", a:"8월 17일(월) 13:00~17:00, 히든밸리 송추에서 진행해요. 수련원에서 편도 약 15분(7km) 거리예요." },
-    { q:"물놀이 준비물은 무엇인가요?", a:"수영모 또는 야구모자, 그리고 수영복이나 래쉬가드를 착용해야 풀장을 이용할 수 있어요." },
-    { q:"회비를 현금으로 납부하고 싶어요.", a:"계좌이체 외에 현금 납부도 가능해요. 계좌 및 금액 등 자세한 내용은 추후 업데이트 될 예정이에요." },
-    { q:"더 궁금한 점이 있어요.", a:"각 목장 리더나 운영위원에게 질문해주세요." },
+    { q:"회비를 현금으로 납부하고 싶어요.", a:"계좌이체 외에 현장에서 현금 납부도 가능해요. 계좌 및 금액 등 자세한 내용은 추후 업데이트 될 예정이에요." },
+    { q:"따로 궁금한 점이 있어요.", a:"각 목장 리더나 운영위원에게 질문해주세요." },
   ];
   const faqList = document.getElementById('faqList');
   faqs.forEach(f => {
