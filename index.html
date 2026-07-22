@@ -42,13 +42,14 @@
     padding: 70px 22px 40px;
   }
   .logo{
-    width: 260px;
+    width: 320px;
     margin: 0 auto 6px;
     display:block;
   }
   .hero h1{
-    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-size: clamp(1.5rem, 5vw, 2.6rem);
     margin: 6px 0 4px;
+    word-break: keep-all;
   }
   .hero .tagline{
     color: var(--coral);
@@ -160,6 +161,15 @@
     padding: 1px 10px; border-radius: 999px;
   }
 
+  /* ---------- SONG LIST ---------- */
+  .song-list{
+    list-style:none; margin:8px 0 0; padding:6px 12px;
+    background:var(--paper); border-left:3px solid var(--coral);
+    border-radius:0 8px 8px 0;
+  }
+  .song-list li{ font-size:0.88rem; color:var(--ink); padding:2px 0; }
+  .song-list .song-tbd{ color:var(--ink-soft); font-style:italic; }
+
   /* ---------- POOL LIST ---------- */
   .pool-list{
     list-style:none; padding:0;
@@ -199,6 +209,27 @@
   .faq-a{ max-height:0; overflow:hidden; color: var(--ink-soft); font-size:0.92rem; transition: max-height 0.25s ease; }
   .faq-item.open .faq-a{ max-height:200px; margin-top:8px; }
 
+  /* ---------- SEE YOU ---------- */
+  .see-you-wrap{ text-align:center; padding: 40px 22px 20px; }
+  .see-you-box{
+    display:inline-block;
+    padding: 28px 40px;
+    background: var(--coral);
+    border-color: var(--ink);
+    color: #fff;
+  }
+  .see-you-text{
+    font-family:'Gaegu',cursive; font-weight:700;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    margin: 0 0 6px;
+    color: #fff;
+  }
+  .see-you-sub{
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+
   footer{ text-align:center; padding: 30px 24px 50px; color: var(--ink-soft); font-size:0.8rem; }
 
   @media (max-width:600px){
@@ -217,6 +248,7 @@
     <li><b>장소</b> : 양주 크라운 해태 수련원</li>
     <li><b>위치</b> : 경기도 양주시 백석읍 권율로 721</li>
     <li><b>날짜</b> : 2026. 8. 16(일) – 8. 18(화)</li>
+    <li><b>회비 및 입금 계좌</b> : 추후 업데이트 됩니다</li>
   </ol>
   <div class="live-card sticker">
     <div class="live-label"><span class="dot"></span><span id="liveLabel">D-DAY 계산 중</span></div>
@@ -312,14 +344,26 @@
   </div>
 </section>
 
-<footer>다니엘 청년부 여름 수련회</footer>
+<div class="see-you-wrap">
+  <div class="see-you-box sticker">
+    <p class="see-you-text">모두 수련회에서 만나요!</p>
+    <p class="see-you-sub">대화교회 다니엘 청년부 운영위 일동</p>
+  </div>
+</div>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<footer>
+  <p style="margin:0 0 4px;">다니엘 청년부 여름 수련회</p>
+  <p style="margin:0;">© 2026 Daniel Youth. All rights reserved.</p>
+</footer>
 
 <script>
   const schedule = [
     { date: "2026-08-16", items: [
       { time:"16:00–17:00", title:"수련회 출발 및 도착" },
       { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)" },
-      { time:"19:00–21:00", title:"저녁 집회" },
+      { time:"19:00–21:00", title:"저녁 집회", songs:[] },
     ]},
     { date: "2026-08-17", items: [
       { time:"07:00–08:00", title:"기상 및 세면, 조식" },
@@ -330,7 +374,7 @@
       { time:"13:00–17:00", title:"물놀이 (이동시간 포함)", tag:"히든밸리 송추" },
       { time:"17:00–18:00", title:"휴식" },
       { time:"18:00–19:00", title:"석식" },
-      { time:"19:00–21:00", title:"저녁 집회" },
+      { time:"19:00–21:00", title:"저녁 집회", songs:[] },
     ]},
     { date: "2026-08-18", items: [
       { time:"07:00–08:00", title:"기상 및 세면, 조식" },
@@ -370,10 +414,18 @@
         const isNow = start && end && now >= start && now < end;
         const div = document.createElement('div');
         div.className = 'item' + (isNow ? ' now' : '');
+        const songsHtml = it.songs != null
+          ? `<ul class="song-list">${
+              it.songs.length
+                ? it.songs.map(s => `<li>${s}</li>`).join('')
+                : `<li class="song-tbd">찬양 목록 업데이트 예정</li>`
+            }</ul>`
+          : '';
         div.innerHTML = `<div class="item-time">${it.time}</div>
           <div class="item-title">${it.title}</div>
           ${it.tag ? `<span class="item-tag">${it.tag}</span>` : ''}
-          ${isNow ? `<span class="item-tag" style="background:var(--ink);">지금 진행중</span>` : ''}`;
+          ${isNow ? `<span class="item-tag" style="background:var(--ink);">지금 진행중</span>` : ''}
+          ${songsHtml}`;
         tl.appendChild(div);
       });
       timelineWrap.appendChild(tl);
@@ -439,6 +491,7 @@
   const faqs = [
     { q:"물놀이는 언제, 어디서 하나요?", a:"8월 17일(월) 13:00~17:00, 히든밸리 송추에서 진행해요. 수련원에서 편도 약 15분(7km) 거리예요." },
     { q:"물놀이 준비물은 무엇인가요?", a:"수영모 또는 야구모자, 그리고 수영복이나 래쉬가드를 착용해야 풀장을 이용할 수 있어요." },
+    { q:"회비를 현금으로 납부하고 싶어요.", a:"계좌이체 외에 현금 납부도 가능해요. 계좌 및 금액 등 자세한 내용은 추후 업데이트 될 예정이에요." },
     { q:"더 궁금한 점이 있어요.", a:"각 목장 리더나 운영위원에게 질문해주세요." },
   ];
   const faqList = document.getElementById('faqList');
