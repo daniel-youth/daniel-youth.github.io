@@ -449,7 +449,7 @@
         let songsHtml = '';
         if(it.songs != null){
           const listItems = it.songs.length
-            ? it.songs.map((s,i) => `<li><span class="song-num">${i+1}</span><span class="song-title">${s.title}</span><span class="song-tag">${s.tag}</span></li>`).join('')
+            ? it.songs.map((s,i) => `<li><span class="song-num">${i+1}</span><span class="song-title">${s.title}</span></li>`).join('')
             : `<li class="song-tbd">찬양 목록 업데이트 예정</li>`;
           const playlistBtn = it.playlist
             ? `<a class="song-playlist" href="${it.playlist}" target="_blank" rel="noopener">▶ 플레이리스트 보기</a>`
