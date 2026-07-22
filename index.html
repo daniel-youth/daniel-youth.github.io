@@ -134,7 +134,7 @@
     display: flex;
     gap: 24px;
     width: max-content;
-    animation: marquee 20s linear infinite;
+    animation: marquee 35s linear infinite;
   }
   .marquee-wrap:hover .marquee-track{
     animation-play-state: paused;
@@ -379,10 +379,16 @@
       </div>
       <div class="live-sub" id="liveSub"></div>
     </div>
-    <a id="groupBtn" class="group-card-btn sticker locked" href="#" onclick="return false;">
-      <div class="live-label"><span>🔒</span><span>조편성</span></div>
-      <div class="live-title">수련회 당일 공개</div>
-    </a>
+    <div style="display:flex;gap:14px;width:100%;">
+      <a class="group-card-btn sticker locked" href="#" onclick="return false;"> <!-- 이 부분 나중에 신청 링크로 변경 -->
+        <div class="live-label"><span>🔒</span><span>신청서 작성</span></div>
+        <div class="live-title">신청 링크 추후 공개</div>
+      </a>
+      <a id="groupBtn" class="group-card-btn sticker locked" href="#" onclick="return false;">
+        <div class="live-label"><span>🔒</span><span>조편성</span></div>
+        <div class="live-title">수련회 당일 공개</div>
+      </a>
+    </div>
   </div>
   </div>
 </section>
@@ -501,7 +507,7 @@
 
 <footer>
   <p style="margin:0 0 4px;">다니엘 청년부 여름 수련회</p>
-  <p style="margin:0;">© 2026 Daniel Youth. All rights reserved.</p>
+  <p style="margin:0;">© 2026 xub2. All rights reserved.</p>
 </footer>
 
 <script>
