@@ -555,10 +555,7 @@
           const playlistBtn = it.playlist
             ? `<a class="song-playlist" href="${it.playlist}" target="_blank" rel="noopener">▶ 플레이리스트 보기</a>`
             : '';
-          const teamHtml = it.team
-            ? `<p class="song-team">${it.team.replace(/\n/g,'<br>')}</p>`
-            : '';
-          songsHtml = `<div class="song-wrap">${playlistBtn}<ol class="song-list">${listItems}</ol>${teamHtml}</div>`;
+          songsHtml = `<div class="song-wrap">${playlistBtn}<ol class="song-list">${listItems}</ol></div>`;
         }
         div.innerHTML = `<div class="item-time">${it.time}</div>
           <div class="item-title">${it.title}</div>
