@@ -490,7 +490,13 @@
     const title = document.getElementById('liveTitle');
     const sub = document.getElementById('liveSub');
 
-    if(now < start){
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const startDay = new Date(2026, 7, 16);
+    if(today.getTime() === startDay.getTime() && now < start){
+      label.textContent = "D-DAY";
+      title.textContent = "오늘 출발이에요!";
+      sub.textContent = "2026. 8. 16(일) 16:00 출발";
+    } else if(now < start){
       const days = Math.ceil((start - now) / 86400000);
       label.textContent = "D-DAY";
       title.textContent = `수련회까지 ${days}일 남았어요`;
