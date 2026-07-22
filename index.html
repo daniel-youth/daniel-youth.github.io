@@ -497,7 +497,7 @@
       title.textContent = "오늘 출발이에요!";
       sub.textContent = "2026. 8. 16(일) 16:00 출발";
     } else if(now < start){
-      const days = Math.ceil((start - now) / 86400000);
+      const days = (startDay - today) / 86400000;
       label.textContent = "D-DAY";
       title.textContent = `수련회까지 ${days}일 남았어요`;
       sub.textContent = "2026. 8. 16(일) 16:00 출발";
