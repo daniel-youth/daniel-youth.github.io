@@ -394,12 +394,17 @@
     border-radius: 999px;
     transition: color 0.2s;
   }
-  .float-nav a.fn-active{
-    color: var(--coral);
-    background: rgba(242,100,59,0.18);
-    box-shadow:
-      inset 0 1.5px 0 rgba(255,255,255,0.8),
-      0 1px 6px rgba(242,100,59,0.15);
+  .float-nav a{ position: relative; z-index: 1; }
+  .float-nav a.fn-active{ color: var(--coral); }
+  .nav-indicator{
+    position: absolute;
+    top: 5px; bottom: 5px; left: 0; width: 25%;
+    background: rgba(242,100,59,0.15);
+    border-radius: 999px;
+    box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.85), 0 1px 8px rgba(242,100,59,0.12);
+    transition: left 0.32s cubic-bezier(0.34, 1.4, 0.64, 1), width 0.25s ease;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .group-card-btn .live-title{ font-size: clamp(0.85rem, 3.8vw, 1.15rem); word-break: keep-all; }
@@ -856,14 +861,32 @@
 
   // 플로팅 네비 스크롤 스파이
   document.addEventListener('DOMContentLoaded', function(){
+    const floatNav = document.querySelector('.float-nav');
     const navLinks = document.querySelectorAll('.float-nav a');
     const sectionIds = ['top', 'theme', 'schedule', 'faq'];
     const sections = sectionIds.map(id => document.getElementById(id));
 
+    const indicator = document.createElement('div');
+    indicator.className = 'nav-indicator';
+    floatNav.insertBefore(indicator, floatNav.firstChild);
+
+    function moveIndicator(index){
+      const navRect = floatNav.getBoundingClientRect();
+      const linkRect = navLinks[index].getBoundingClientRect();
+      indicator.style.left = (linkRect.left - navRect.left) + 'px';
+      indicator.style.width = linkRect.width + 'px';
+    }
+
     function setActive(index){
       navLinks.forEach((a, i) => a.classList.toggle('fn-active', i === index));
+      moveIndicator(index);
     }
-    setActive(0);
+    // 초기 위치는 레이아웃 후에 설정
+    requestAnimationFrame(() => {
+      indicator.style.transition = 'none';
+      moveIndicator(0);
+      requestAnimationFrame(() => { indicator.style.transition = ''; setActive(0); });
+    });
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY + window.innerHeight * 0.35;
