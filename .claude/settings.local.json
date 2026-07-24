@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha honbo1.pdf)"
+      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha honbo1.pdf)",
+      "Bash(git fetch *)"
     ]
   }
 }
