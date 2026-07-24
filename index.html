@@ -47,11 +47,27 @@
     text-align:center;
     padding: 30px 22px 40px;
   }
-  .logo{
-    width: min(820px, 98vw);
-    margin: 0 auto 0;
-    transform: translateX(-12px);
-    display:block;
+  .logo-block{
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+  .logo-img{
+    width: min(250px, 46vw);
+    display: block;
+    margin: 0 auto;
+  }
+  .logo-summer{
+    font-family: 'Gaegu', cursive;
+    font-size: 60px;
+    font-weight: 700;
+    color: #E8542A;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    margin: 2px auto 0;
   }
   .hero h1{
     font-size: clamp(1.5rem, 5vw, 2.6rem);
@@ -445,7 +461,10 @@
 <body id="top">
 
 <section class="hero">
-  <img src="newLogoSorted.png" alt="다니엘 청년부 로고" class="logo">
+  <div class="logo-block">
+    <img src="logo.png" alt="다니엘 청년부 로고" class="logo-img">
+    <p class="logo-summer">Summer Retreat</p>
+  </div>
   <h1>2026년 다니엘 청년부 여름 수련회</h1>
   <p class="tagline">"그리스도, 우리의 소망"</p>
   <div class="hero-info">
