@@ -278,11 +278,11 @@
     box-shadow:3px 3px 0 var(--ink);
   }
   .song-playlist{
-    display:inline-flex; align-items:center; gap:5px;
-    margin-bottom:12px;
+    display:flex; align-items:center; justify-content:center; gap:5px;
+    margin-top:12px;
     font-family:'Gaegu',cursive; font-weight:700; font-size:0.85rem;
     color:#fff; background:var(--coral);
-    padding:4px 14px; border-radius:999px;
+    padding:7px 14px; border-radius:10px;
     text-decoration:none;
     border:1.5px solid var(--ink);
     box-shadow:2px 2px 0 var(--ink);
@@ -304,6 +304,14 @@
   .song-title{ flex:1; font-size:0.88rem; color:var(--ink); line-height:1.4; word-break:keep-all; }
   .song-tag{ font-size:0.72rem; color:var(--ink-soft); background:var(--paper); border:1px solid rgba(30,27,22,0.25); border-radius:999px; padding:1px 8px; flex-shrink:0; }
   .song-team{ margin:10px 0 0; font-size:0.78rem; color:var(--ink-soft); border-top:1px dashed rgba(30,27,22,0.2); padding-top:8px; line-height:1.8; }
+  .card-section{ padding:12px 0; border-bottom:1px dashed rgba(30,27,22,0.15); }
+  .card-section:last-of-type{ border-bottom:none; }
+  .card-section-header{ display:flex; align-items:baseline; gap:8px; margin-bottom:8px; }
+  .card-section-label{ font-size:0.95rem; font-weight:700; color:var(--coral); letter-spacing:0.04em; }
+  .card-section-by{ font-size:0.78rem; color:var(--ink-soft); }
+  .sermon-title{ font-size:1rem; font-weight:700; color:var(--ink); word-break:keep-all; margin:4px 0 4px; }
+  .sermon-verse{ font-size:0.88rem; color:var(--ink-soft); }
+
 
   /* ---------- POOL LIST ---------- */
   .pool-list{
@@ -561,7 +569,7 @@
       <div class="eyebrow hand">물놀이</div>
       <h2>히든밸리 송추</h2>
     </div>
-    <p style="text-align:center;color:var(--ink-soft);font-size:0.92rem;margin:-14px 0 26px;">수련회는 양주 크라운 해태 수련원에서 진행되고, 물놀이 날에만 히든밸리 송추로 이동해요.</p>
+    <p style="text-align:center;color:var(--ink-soft);font-size:0.92rem;margin:-14px 0 26px;">대부분의 일정은 수련원에서 진행되고, 물놀이 날에만 외부로 이동해요.</p>
     <ul class="pool-list">
       <li><span class="pool-key">장소</span><span class="pool-val">히든밸리 송추</span></li>
       <li><span class="pool-key">위치</span><span class="pool-val"><a class="map-link" href="https://map.naver.com/v5/search/경기+양주시+장흥면+교현리+127-2" target="_blank" rel="noopener">경기 양주시 장흥면 교현리 127-2</a></span></li>
@@ -628,6 +636,7 @@
       { time:"16:00–17:00", title:"수련회 출발 및 도착", emoji:"🚌" },
       { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)", emoji:"🍽️" },
       { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
+        sermon:{ title:"The 믿음", verse:"롬 4:13-25" },
         playlist:"https://youtube.com/playlist?list=PLTJ6c5xQ22So&si=SPHio_yv2z8kJobh",
         songs:[
           { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
@@ -651,6 +660,7 @@
       { time:"17:00–18:00", title:"휴식", emoji:"😌" },
       { time:"18:00–19:00", title:"석식", emoji:"🍽️" },
       { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
+        sermon:{ title:"소망이 도착했습니다", verse:"롬 5:1-11" },
         playlist:"https://youtube.com/playlist?list=PLc2GTK-CNu5Q&si=bzgUZaqjj3AAZHSa",
         songs:[
           { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
@@ -666,7 +676,7 @@
     ]},
     { date: "2026-08-18", items: [
       { time:"07:00–08:00", title:"기상 및 세면, 조식", emoji:"🌅" },
-      { time:"08:00–09:00", title:"아침 QT, 폐회 예배", emoji:"📖" },
+      { time:"08:00–09:00", title:"아침 QT, 파송(폐회) 예배", emoji:"📖", sermon:{ title:"그리스도, 우리의 소망", verse:"롬 5:12-21" } },
       { time:"09:00–09:50", title:"수련회 뒷정리", emoji:"🧹" },
       { time:"09:50–11:00", title:"교회 출발 및 도착", emoji:"🚌" },
       { time:"11:00–12:00", title:"교회 뒷정리", emoji:"🧹" },
@@ -702,21 +712,34 @@
         const isNow = start && end && now >= start && now < end;
         const div = document.createElement('div');
         div.className = 'item' + (isNow ? ' now' : '');
-        let songsHtml = '';
-        if(it.songs != null){
-          const listItems = it.songs.length
+        let cardHtml = '';
+        if(it.songs != null || it.sermon){
+          const sermonSection = it.sermon
+            ? `<div class="card-section">
+                <div class="card-section-header"><span class="card-section-label">말씀</span><span class="card-section-by">서성진 목사님</span></div>
+                <div class="sermon-title">${it.sermon.title}</div>
+                <div class="sermon-verse">${it.sermon.verse}</div>
+               </div>`
+            : '';
+          const listItems = (it.songs && it.songs.length)
             ? it.songs.map((s,i) => `<li><span class="song-num">${i+1}</span><span class="song-title">${s.title}</span></li>`).join('')
             : `<li class="song-tbd">찬양 목록 업데이트 예정</li>`;
-          const playlistBtn = it.playlist
-            ? `<a class="song-playlist" href="${it.playlist}" target="_blank" rel="noopener">▶ 찬양 플레이리스트 보기</a>`
+          const songsSection = it.songs != null
+            ? `<div class="card-section">
+                <div class="card-section-header"><span class="card-section-label">찬양</span><span class="card-section-by">라온 찬양팀</span></div>
+                <ol class="song-list">${listItems}</ol>
+               </div>`
             : '';
-          songsHtml = `<div class="song-wrap">${playlistBtn}<ol class="song-list">${listItems}</ol></div>`;
+          const playlistBtn = it.playlist
+            ? `<a class="song-playlist" href="${it.playlist}" target="_blank" rel="noopener">▶ 찬양 플레이리스트 보기 (Youtube)</a>`
+            : '';
+          cardHtml = `<div class="song-wrap">${sermonSection}${songsSection}${playlistBtn}</div>`;
         }
         div.innerHTML = `<div class="item-time">${it.time}</div>
           <div class="item-title">${it.emoji ? it.emoji + ' ' : ''}${it.title}</div>
           ${it.tag ? `<span class="item-tag">${it.tag}</span>` : ''}
           ${isNow ? `<span class="item-tag" style="background:var(--ink);">지금 진행중</span>` : ''}
-          ${songsHtml}`;
+          ${cardHtml}`;
         tl.appendChild(div);
       });
       timelineWrap.appendChild(tl);
