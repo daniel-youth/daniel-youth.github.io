@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://daniel-youth.github.io">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
   :root{
@@ -45,33 +45,45 @@
   /* ---------- HERO ---------- */
   .hero{
     text-align:center;
-    padding: 30px 22px 40px;
+    padding: 20px 22px 40px;
   }
   .logo-block{
     margin: 0 auto 20px;
     text-align: center;
   }
   .logo-img{
-    width: min(250px, 46vw);
+    width: 130px;
+    height: auto;
     display: block;
     margin: 0 auto;
   }
-  .logo-summer{
-    font-family: 'Gaegu', cursive;
-    font-size: 60px;
-    font-weight: 700;
-    color: #E8542A;
-    line-height: 1;
+  .logo-summer-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.82;
+    margin: 3px auto 0;
+  }
+  .logo-summer-text{
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(55px, 18vw, 74px);
+    color: #1E1B18;
     letter-spacing: 2px;
-    text-transform: uppercase;
-    width: fit-content;
-    height: fit-content;
+    transform: rotate(-1.5deg);
     display: block;
-    margin: 2px auto 0;
+  }
+  .logo-retreat-text{
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(55px, 18vw, 74px);
+    color: #E1602E;
+    letter-spacing: 1px;
+    transform: rotate(1.2deg);
+    margin-top: 6px;
+    display: block;
   }
   .hero h1{
     font-size: clamp(1.5rem, 5vw, 2.6rem);
-    margin: 2px 0 4px;
+    margin: 20px 0 12px;
     word-break: keep-all;
   }
   .hero .tagline{
@@ -189,18 +201,22 @@
     border-bottom: 2px dashed var(--ink);
   }
   .verse-text{
-    font-family: 'Gaegu', cursive;
-    font-weight: 700;
-    font-size: 1.25rem;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.88rem, 4vw, 1.1rem);
     color: var(--ink);
-    line-height: 1.8;
-    margin: 0 0 12px;
+    line-height: 2.1;
+    margin: 0 0 14px;
     word-break: keep-all;
   }
+  .verse-line{
+    display: block;
+    white-space: nowrap;
+  }
   .verse-cite{
-    font-family: 'Gaegu', cursive;
-    font-weight: 700;
-    font-size: 1rem;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
     color: var(--coral);
     font-style: normal;
   }
@@ -231,7 +247,7 @@
   section{ padding: 46px 0; }
   .section-head{ text-align:center; margin-bottom: 30px; }
   .section-head .eyebrow{ color: var(--coral); font-size:1.3rem; margin-bottom:2px; }
-  .section-head h2{ font-size: clamp(1.8rem, 5vw, 2.5rem); margin:0; }
+  .section-head h2{ font-size: clamp(2.2rem, 7vw, 3rem); margin:0; }
 
   /* ---------- SCHEDULE ---------- */
   .day-tabs{ display:flex; justify-content:center; gap:10px; margin-bottom:26px; flex-wrap:wrap; }
@@ -471,7 +487,10 @@
 <section class="hero">
   <div class="logo-block">
     <img src="logo.png" alt="다니엘 청년부 로고" class="logo-img">
-    <p class="logo-summer">Summer Retreat</p>
+    <div class="logo-summer-block">
+      <div class="logo-summer-text">SUMMER</div>
+      <div class="logo-retreat-text">RETREAT</div>
+    </div>
   </div>
   <h1>2026년 다니엘 청년부 여름 수련회</h1>
   <p class="tagline">"그리스도, 우리의 소망"</p>
@@ -536,7 +555,7 @@
     </div>
     <blockquote class="verse-block">
       <p class="verse-text">
-        "소망이 우리를 부끄럽게 하지 아니함은<br>우리에게 주신 성령으로 말미암아<br>하나님의 사랑이 우리 마음에 부은 바 됨이니"
+        <span class="verse-line">"소망이 우리를 부끄럽게 하지 아니함은</span><span class="verse-line">우리에게 주신 성령으로 말미암아</span><span class="verse-line">하나님의 사랑이 우리 마음에 부은 바 됨이니"</span>
       </p>
       <cite class="verse-cite">— 로마서 5:5 (개역개정)</cite>
     </blockquote>
