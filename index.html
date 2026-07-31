@@ -178,38 +178,50 @@
   .live-title{ font-family:'Gaegu'; font-weight:700; font-size:clamp(1.3rem, 5.5vw, 1.8rem); word-break:keep-all; line-height:1.4; }
   .live-sub{ font-size:0.88rem; color: var(--ink-soft); }
 
-  /* ---------- MARQUEE ---------- */
-  .marquee-wrap{
-    overflow: hidden;
+  /* ---------- SLIDESHOW ---------- */
+  .slideshow{
+    position: relative;
     width: 100%;
+    max-width: 300px;
     margin: 0 auto;
-  }
-  .marquee-track{
-    display: flex;
-    gap: 24px;
-    width: max-content;
-    animation: marquee 35s linear infinite;
-  }
-  .marquee-wrap:hover .marquee-track{
-    animation-play-state: paused;
-  }
-  @keyframes marquee{
-    0%{ transform: translateX(0); }
-    100%{ transform: translateX(-50%); }
-  }
-  .marquee-card{
-    flex-shrink: 0;
     border: 2px solid var(--ink);
     border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
     box-shadow: 5px 5px 0 var(--ink);
     overflow: hidden;
     background: var(--card);
+    transition: height 0.4s ease;
   }
-  .marquee-card img{
+  .slide{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .slide.active{ opacity: 1; }
+  .slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
     display: block;
-    height: 360px;
-    width: auto;
   }
+  .slide-dots{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .slide-dot{
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+    opacity: 0.2;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+  .slide-dot.active{ opacity: 1; background: var(--coral); }
   /* ---------- VERSE ---------- */
   .verse-block{
     max-width: 480px;
@@ -556,22 +568,14 @@
   <div class="wrap" id="theme">
     <div class="section-head">
       <div class="eyebrow hand">표어</div>
-      <h2 style="font-size: clamp(2.4rem, 7vw, 3.4rem);">그리스도, 우리의 소망</h2>
+      <h2 style="font-size: clamp(2.4rem, 7vw, 3.4rem);">"그리스도, 우리의 소망"</h2>
     </div>
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <div class="marquee-card"><img src="theme.jpg" alt="표어 이미지"></div>
-        <div class="marquee-card"><img src="honbo1.png" alt="홍보물 1"></div>
-        <div class="marquee-card"><img src="hongbo2.png" alt="홍보물 2"></div>
-        <div class="marquee-card"><img src="hongbo3.png" alt="홍보물 3"></div>
-        <div class="marquee-card"><img src="hongbo4.jpeg" alt="홍보물 4"></div>
-        <div class="marquee-card"><img src="theme.jpg" alt="표어 이미지"></div>
-        <div class="marquee-card"><img src="honbo1.png" alt="홍보물 1"></div>
-        <div class="marquee-card"><img src="hongbo2.png" alt="홍보물 2"></div>
-        <div class="marquee-card"><img src="hongbo3.png" alt="홍보물 3"></div>
-        <div class="marquee-card"><img src="hongbo4.jpeg" alt="홍보물 4"></div>
-      </div>
+    <div class="slideshow" id="slideshow">
+      <div class="slide active"><img src="hongbo2.png" alt="홍보물 2"></div>
+      <div class="slide"><img src="hongbo3.png" alt="홍보물 3"></div>
+      <div class="slide"><img src="hongbo4.jpeg" alt="홍보물 4"></div>
     </div>
+    <div class="slide-dots" id="slideDots"></div>
     <blockquote class="verse-block">
       <p class="verse-text">
         <span class="verse-line">"소망이 우리를 부끄럽게 하지 아니함은</span><span class="verse-line">우리에게 주신 성령으로 말미암아</span><span class="verse-line">하나님의 사랑이 우리 마음에 부은 바 됨이니"</span>
@@ -607,7 +611,7 @@
       <div class="eyebrow hand">물놀이</div>
       <h2>히든밸리 송추</h2>
     </div>
-    <p style="text-align:center;color:var(--ink-soft);font-size:0.92rem;margin:-14px 0 26px;">대부분의 일정은 수련원에서 진행되고, 물놀이 날에만 외부로 이동해요.</p>
+    <p style="text-align:center;color:var(--ink-soft);font-size:0.92rem;margin:-14px 0 26px;">물놀이 날에는 외부 수영장으로 이동해요.</p>
     <ul class="pool-list">
       <li><span class="pool-key">장소</span><span class="pool-val">히든밸리 송추</span></li>
       <li><span class="pool-key">위치</span><span class="pool-val"><a class="map-link" href="https://map.naver.com/v5/search/경기+양주시+장흥면+교현리+127-2" target="_blank" rel="noopener">경기 양주시 장흥면 교현리 127-2</a></span></li>
@@ -669,8 +673,59 @@
 </footer>
 
 <script>
+  /* ---------- SLIDESHOW ---------- */
+  (function(){
+    const slideshow = document.getElementById('slideshow');
+    const slides = Array.from(document.querySelectorAll('#slideshow .slide'));
+    const dotsWrap = document.getElementById('slideDots');
+    let current = 0;
+
+    const order = slides.map((_, i) => i);
+    for(let i = order.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+
+    const dots = order.map((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', `슬라이드 ${i+1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    function goTo(idx){
+      slides[order[current]].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = idx;
+      slides[order[current]].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function initHeight(){
+      const w = slideshow.offsetWidth;
+      const imgs = slides.map(s => s.querySelector('img'));
+      const heights = imgs.map(img =>
+        img.naturalWidth > 0 ? w * img.naturalHeight / img.naturalWidth : 0
+      );
+      const maxH = Math.max(...heights);
+      if(maxH > 0) slideshow.style.height = maxH + 'px';
+    }
+
+    const allImgs = slides.map(s => s.querySelector('img'));
+    let loaded = 0;
+    allImgs.forEach(img => {
+      const onLoad = () => { if(++loaded === allImgs.length) initHeight(); };
+      img.complete ? onLoad() : img.addEventListener('load', onLoad, {once:true});
+    });
+
+    setInterval(() => goTo((current + 1) % slides.length), 3500);
+  })();
+
   const schedule = [
     { date: "2026-08-16", items: [
+      { time:"14:30–16:00", title:"주일 예배", emoji:"⛪" },
       { time:"16:00–17:00", title:"수련회 출발 및 도착", emoji:"🚌" },
       { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)", emoji:"🍽️" },
       { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
