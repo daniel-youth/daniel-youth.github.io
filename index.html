@@ -222,6 +222,32 @@
     padding: 0;
   }
   .slide-dot.active{ opacity: 1; background: var(--coral); }
+  .slideshow .slide img{ cursor: zoom-in; }
+  .lightbox{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lightbox.open{ display: flex; }
+  .lightbox img{
+    max-width: 100%;
+    max-height: 90dvh;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: zoom-out;
+  }
+  .lightbox-close{
+    position: absolute;
+    top: 16px; right: 20px;
+    background: none; border: none;
+    color: #fff; font-size: 36px;
+    line-height: 1; cursor: pointer;
+  }
   /* ---------- VERSE ---------- */
   .verse-block{
     max-width: 480px;
@@ -576,6 +602,7 @@
       <div class="slide"><img src="hongbo4.jpeg" alt="홍보물 4"></div>
     </div>
     <div class="slide-dots" id="slideDots"></div>
+    <p style="text-align:center; font-size:0.78rem; color:var(--ink-soft); margin:8px 0 0;">이미지를 탭하면 크게 볼 수 있어요</p>
     <blockquote class="verse-block">
       <p class="verse-text">
         <span class="verse-line">"소망이 우리를 부끄럽게 하지 아니함은</span><span class="verse-line">우리에게 주신 성령으로 말미암아</span><span class="verse-line">하나님의 사랑이 우리 마음에 부은 바 됨이니"</span>
@@ -721,6 +748,12 @@
     });
 
     setInterval(() => goTo((current + 1) % slides.length), 3500);
+
+    slideshow.addEventListener('click', () => {
+      const img = slides[order[current]].querySelector('img');
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+    });
   })();
 
   const schedule = [
@@ -1071,6 +1104,11 @@
     FAQ
   </a>
 </nav>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open')">×</button>
+  <img id="lightboxImg" src="" alt="" onclick="document.getElementById('lightbox').classList.remove('open')">
+</div>
 
 </body>
 </html>
