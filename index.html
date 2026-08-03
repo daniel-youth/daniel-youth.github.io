@@ -757,9 +757,8 @@
 
   const schedule = [
     { date: "2026-08-16", items: [
-      { time:"14:30–16:00", title:"주일 예배", emoji:"⛪" },
       { time:"16:00–17:00", title:"수련회 출발 및 도착", emoji:"🚌" },
-      { time:"17:00–19:00", title:"석식 및 휴식 (수련회 준비)", emoji:"🍽️" },
+      { time:"17:00–19:00", title:"석식 및 휴식", emoji:"🍽️" },
       { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
         sermon:{ title:"The 믿음", verse:"롬 4:13-25" },
         playlist:"https://youtube.com/playlist?list=PLTJ6c5xQ22So&si=SPHio_yv2z8kJobh",
@@ -774,14 +773,17 @@
         ],
         team:"건반: 고예빈 / 드럼: 최중수 / 일렉: 박병돈\n싱어: 윤희영, 김영빈, 박지현, 양희선, 박성원\n워십: 백윤진, 이한별"
       },
+      { time:"21:00–22:00", title:"조별 나눔", emoji:"💬" },
     ]},
     { date: "2026-08-17", items: [
       { time:"07:00–08:00", title:"기상 및 세면, 조식", emoji:"🌅" },
       { time:"08:00–09:00", title:"아침 QT", emoji:"📖" },
-      { time:"09:00–10:00", title:"오전 활동", emoji:"⚡" },
-      { time:"10:00–12:00", title:"특강", emoji:"🎤" },
+      { time:"09:00–10:00", title:"조별 활동", emoji:"⚡" },
+      { time:"10:00–12:00", title:'토크콘서트', emoji:"🎤",
+        talkshow:{ hosts:["박성원 청년", "박지현 청년"], guests:[["김인걸 부장집사님", "변지원 집사님"], ["김장우 집사님", "황주아 집사님"]], revealAt:"2026-08-17T07:00:00+09:00" }
+      },
       { time:"12:00–13:00", title:"중식", emoji:"🍱" },
-      { time:"13:00–17:00", title:"물놀이 (이동시간 포함)", emoji:"🌊"},
+      { time:"13:00–17:00", title:"물놀이", emoji:"🌊"},
       { time:"17:00–18:00", title:"휴식", emoji:"😌" },
       { time:"18:00–19:00", title:"석식", emoji:"🍽️" },
       { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
@@ -798,14 +800,15 @@
         ],
         team:"건반: 고예빈 / 드럼: 최중수 / 일렉: 박병돈\n싱어: 윤희영, 박세인, 김영빈, 권지은, 박지현, 양희선, 김정민\n워십: 백윤진, 이한별"
       },
+      { time:"21:00–22:00", title:"조별 나눔", emoji:"💬" },
     ]},
     { date: "2026-08-18", items: [
       { time:"07:00–08:00", title:"기상 및 세면, 조식", emoji:"🌅" },
-      { time:"08:00–09:00", title:"아침 QT, 파송(폐회) 예배", emoji:"📖", sermon:{ title:"그리스도, 우리의 소망", verse:"롬 5:12-21" } },
-      { time:"09:00–09:50", title:"수련회 뒷정리", emoji:"🧹" },
-      { time:"09:50–11:00", title:"교회 출발 및 도착", emoji:"🚌" },
-      { time:"11:00–12:00", title:"교회 뒷정리", emoji:"🧹" },
-      { time:"12:00–13:00", title:"중식", emoji:"🍱" },
+      { time:"08:00–09:00", title:"조별 활동", emoji:"⚡" },
+      { time:"09:00–10:00", title:"파송 예배", emoji:"🙏", sermon:{ title:"그리스도, 우리의 소망", verse:"롬 5:12-21" } },
+      { time:"10:00–11:00", title:"촬영, 수련회 뒷정리", emoji:"📸" },
+      { time:"11:00–12:00", title:"중식", emoji:"🍱" },
+      { time:"12:00–13:00", title:"이동", emoji:"🚌" },
       { time:"13:00–", title:"해산", emoji:"👋" },
     ]},
   ];
@@ -838,7 +841,23 @@
         const div = document.createElement('div');
         div.className = 'item' + (isNow ? ' now' : '');
         let cardHtml = '';
-        if(it.songs != null || it.sermon){
+        if(it.talkshow){
+          const hostStr = it.talkshow.hosts.join(', ');
+          const guestRevealed = it.talkshow.revealAt && now >= new Date(it.talkshow.revealAt);
+          const guestStr = guestRevealed
+            ? it.talkshow.guests.map(pair => '- ' + pair.join(' & ')).join('<br>')
+            : 'Coming soon 🎉';
+          cardHtml = `<div class="song-wrap">
+            <div class="card-section">
+              <div class="card-section-header"><span class="card-section-label">진행</span><span class="card-section-by">${hostStr}</span></div>
+              <div class="sermon-title">"응답하라 다니엘 청년부"</div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-header"><span class="card-section-label">특별 게스트</span></div>
+              <div class="sermon-verse" style="font-size:1rem;">${guestStr}</div>
+            </div>
+          </div>`;
+        } else if(it.songs != null || it.sermon){
           const sermonSection = it.sermon
             ? `<div class="card-section">
                 <div class="card-section-header"><span class="card-section-label">말씀</span><span class="card-section-by">서성진 목사님</span></div>
