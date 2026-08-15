@@ -318,22 +318,35 @@
     color: var(--ink);
   }
   .day-tab.active{ background: var(--ink); color: var(--paper); }
+  #timelines{
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 20px 16px 8px 16px;
+  }
   .timeline{ position:relative; padding-left:24px; display:none; }
   .timeline.active{ display:block; }
   .timeline::before{
     content:""; position:absolute; left:5px; top:4px; bottom:4px; width:2px;
     background: repeating-linear-gradient(to bottom, var(--ink) 0 5px, transparent 5px 10px);
   }
-  .item{ position:relative; padding: 0 0 24px 20px; }
+  .item{ position:relative; padding: 12px 0 12px 20px; border-bottom: 1px dashed rgba(30,27,22,0.15); }
+  .item:last-child{ border-bottom: none; }
   .item::before{
-    content:""; position:absolute; left:-24px; top:3px;
+    content:""; position:absolute; left:-24px; top:50%;  transform:translateY(-50%);
     width:11px; height:11px; border-radius:50%;
     background: var(--card); border:2px solid var(--ink);
   }
   .item.now::before{ background: var(--coral); border-color: var(--coral); }
   .item.now .item-title{ color: var(--coral); }
-  .item-time{ font-size:0.8rem; color: var(--ink-soft); font-weight:700; }
-  .item-title{ font-size:1.02rem; font-weight:700; margin-top:1px; }
+  .item-time{
+    display:inline-block; font-size:0.68rem; font-weight:700;
+    color: var(--ink-soft); background: rgba(30,27,22,0.07);
+    border-radius:999px; padding: 1px 8px; margin-bottom:5px;
+  }
+  .item.now .item-time{ color: var(--coral); background: rgba(242,100,59,0.1); }
+  .item-title{ font-size:1.05rem; font-weight:700; line-height:1.4; }
   .item-tag{
     display:inline-block; margin-top:5px;
     font-family:'Gaegu'; font-size:0.8rem;
@@ -345,7 +358,7 @@
   .song-wrap{
     margin:12px 0 0;
     padding:14px 16px;
-    background:var(--card);
+    background:var(--paper);
     border:2px solid var(--ink);
     border-radius:16px;
     box-shadow:3px 3px 0 var(--ink);
@@ -854,7 +867,7 @@
             : 'Coming soon 🎉';
           cardHtml = `<div class="song-wrap">
             <div class="card-section">
-              <div class="card-section-header"><span class="card-section-label">진행</span><span class="card-section-by">${hostStr}</span></div>
+              <div class="card-section-header"><span class="card-section-label">토크콘서트</span><span class="card-section-by">${hostStr}</span></div>
               <div class="sermon-title">"응답하라 다니엘 청년부"</div>
             </div>
             <div class="card-section">
