@@ -1071,7 +1071,7 @@
         const { start:s, end:e } = parseRange(day.date, it.time);
         if(s && e && now >= s && now < e) current = it;
       }));
-      title.textContent = current ? current.title : "쉬는 시간";
+      title.textContent = current ? current.title : "취침 & 자유 시간";
       sub.textContent = current ? current.time : "";
     } else {
       countdown.style.display = 'none';
