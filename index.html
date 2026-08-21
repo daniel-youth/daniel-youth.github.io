@@ -612,9 +612,52 @@
     color: var(--ink-soft);
     margin-top: 10px;
   }
+
+  /* ---------- COMING SOON ---------- */
+  #coming-soon{
+    display: none;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--paper);
+    gap: 20px;
+  }
+  .cs-logo{ width: 160px; height: auto; }
+  .cs-title{
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  .cs-sub{
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin: 0;
+    word-break: keep-all;
+  }
+  .show-coming-soon body > *:not(#coming-soon){ display: none !important; }
+  .show-coming-soon #coming-soon{ display: flex; }
 </style>
+<script>
+  (function(){
+    var now = new Date();
+    var end = new Date("2026-09-01T00:00:00+09:00");
+    if(now >= end) document.documentElement.classList.add('show-coming-soon');
+  })();
+</script>
 </head>
 <body id="top">
+
+<div id="coming-soon">
+  <img src="logo.png" alt="다니엘 청년부 로고" class="cs-logo">
+  <p class="cs-title">잠시 준비 중이에요,<br>더 좋은 소식을 가지고 돌아올게요</p>
+</div>
 
 <section class="hero">
   <div class="logo-block">
