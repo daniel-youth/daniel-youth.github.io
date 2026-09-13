@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>다니엘 청년부 여름 수련회</title>
+<meta property="og:title" content="2026 다니엘 청년부 여름 수련회">
+<meta property="og:description" content="그리스도, 우리의 소망 | 2026. 8. 16(일) – 8. 18(화)">
+<meta property="og:image" content="https://daniel-youth.github.io/kakao-preview.png">
+<meta property="og:url" content="https://daniel-youth.github.io">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --paper: #FBF7EF;
+    --card: #FFFFFF;
+    --ink: #1E1B16;
+    --ink-soft: #6B6459;
+    --coral: #F2643B;
+    --line: #1E1B16;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; overflow-x:hidden; }
+  body{ overflow-x:hidden; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    line-height:1.65;
+  }
+  h1,h2,h3,.hand{ font-family:'Gaegu', cursive; font-weight:700; }
+  .wrap{ max-width: 820px; margin:0 auto; padding: 0 22px; }
+
+  /* 손그림 느낌 카드/박스 */
+  .sticker{
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    text-align:center;
+    padding: 20px 22px 40px;
+  }
+  .logo-block{
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+  .logo-img{
+    width: 130px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .logo-summer-block{
+    text-align: center;
+    line-height: 0.82;
+    margin: 3px auto 0;
+    transform: translateX(-10px);
+  }
+  .logo-summer-text{
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(70px, 22vw, 88px);
+    color: #1E1B18;
+    letter-spacing: 2px;
+    transform: rotate(-1.5deg);
+    display: block;
+  }
+  .logo-retreat-text{
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(70px, 22vw, 88px);
+    color: #E1602E;
+    letter-spacing: 1px;
+    transform: rotate(1.2deg);
+    margin-top: 10px;
+    display: block;
+  }
+  .hero h1{
+    font-size: clamp(1.35rem, 4.5vw, 2.2rem);
+    margin: 20px 0 2px;
+    word-break: keep-all;
+  }
+  .hero .tagline{
+    position: relative;
+    display: inline-block;
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1E1B18;
+    padding: 2px 10px;
+    white-space: nowrap;
+    margin: 2px 0 6px;
+  }
+  .hero .tagline::before{
+    content: '';
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    bottom: 10px;
+    height: 16px;
+    background: #E1602E;
+    opacity: 0.28;
+    transform: rotate(-1deg);
+    border-radius: 3px;
+    z-index: -1;
+  }
+  .hero .date{
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    margin-bottom: 26px;
+  }
+  .hero-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+  .info-list{
+    list-style:none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0;
+    text-align:left;
+  }
+  .info-list li{
+    counter-increment: item;
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    padding: 3px 0;
+  }
+  .info-list li::before{
+    content: counter(item) ". ";
+    font-family:'Gaegu'; font-weight:700;
+    color: var(--coral);
+  }
+  .info-list b{
+    font-family:'Gaegu'; font-weight:700;
+    color: var(--ink);
+  }
+  .cards-row{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+  .live-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    padding: 18px 16px;
+    text-align:center;
+    flex: 1;
+    min-width: 0;
+  }
+  .live-label{
+    display:flex; align-items:center; gap:8px;
+    font-size:0.8rem; color: var(--ink-soft); text-transform:uppercase; letter-spacing:0.5px;
+  }
+  .dot{
+    width:9px; height:9px; border-radius:50%;
+    background: var(--coral);
+    box-shadow: 0 0 0 0 rgba(242,100,59,0.6);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(242,100,59,0.55); }
+    70%{ box-shadow: 0 0 0 9px rgba(242,100,59,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(242,100,59,0); }
+  }
+  .live-title{ font-family:'Gaegu'; font-weight:700; font-size:clamp(1.3rem, 5.5vw, 1.8rem); word-break:keep-all; line-height:1.4; }
+  .live-sub{ font-size:0.88rem; color: var(--ink-soft); }
+
+  /* ---------- SLIDESHOW ---------- */
+  .slideshow{
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 2px solid var(--ink);
+    border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+    box-shadow: 5px 5px 0 var(--ink);
+    overflow: hidden;
+    background: var(--card);
+    transition: height 0.4s ease;
+  }
+  .slide{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .slide.active{ opacity: 1; }
+  .slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
+    display: block;
+  }
+  .slide-dots{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .slide-dot{
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+    opacity: 0.2;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+  .slide-dot.active{ opacity: 1; background: var(--coral); }
+  .slideshow .slide img{ cursor: zoom-in; }
+  .lightbox{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lightbox.open{ display: flex; }
+  .lightbox img{
+    max-width: 100%;
+    max-height: 90dvh;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: zoom-out;
+  }
+  .lightbox-close{
+    position: absolute;
+    top: 16px; right: 20px;
+    background: none; border: none;
+    color: #fff; font-size: 36px;
+    line-height: 1; cursor: pointer;
+  }
+  /* ---------- VERSE ---------- */
+  .verse-block{
+    max-width: 480px;
+    margin: 32px auto 0;
+    text-align: center;
+    padding: 24px 20px;
+    border-top: 2px dashed var(--ink);
+    border-bottom: 2px dashed var(--ink);
+  }
+  .verse-text{
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.88rem, 4vw, 1.1rem);
+    color: var(--ink);
+    line-height: 2.1;
+    margin: 0 0 14px;
+    word-break: keep-all;
+  }
+  .verse-line{
+    display: block;
+    white-space: nowrap;
+  }
+  .verse-cite{
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--coral);
+    font-style: normal;
+  }
+
+  .countdown{
+    display:flex; align-items:center; gap:6px;
+    margin-top:10px;
+  }
+  .countdown-unit{
+    display:flex; flex-direction:column; align-items:center; gap:1px;
+  }
+  .countdown-num{
+    font-family:'Gaegu'; font-weight:700; font-size:2.4rem;
+    line-height:1; color: var(--coral);
+  }
+  .countdown-label{
+    font-size:0.75rem; color: var(--ink-soft); letter-spacing:0.3px;
+  }
+  .countdown-sep{
+    font-family:'Gaegu'; font-weight:700; font-size:2rem;
+    color: var(--ink-soft); margin-bottom:16px;
+  }
+
+  /* 손그림 구분선 */
+  .divider{ width:100%; height:22px; margin: 6px 0; }
+  .divider path{ fill:none; stroke: var(--ink); stroke-width:2.5; stroke-linecap:round; }
+
+  section{ padding: 46px 0; }
+  .section-head{ text-align:center; margin-bottom: 30px; }
+  .section-head .eyebrow{ color: var(--coral); font-size:1.3rem; margin-bottom:2px; }
+  .section-head h2{ font-size: clamp(2.2rem, 7vw, 3rem); margin:0; }
+
+  /* ---------- SCHEDULE ---------- */
+  .day-tabs{ display:flex; justify-content:center; gap:10px; margin-bottom:26px; flex-wrap:wrap; }
+  .day-tab{
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-family:'Pretendard'; font-weight:700;
+    cursor:pointer; font-size:0.92rem;
+    color: var(--ink);
+  }
+  .day-tab.active{ background: var(--ink); color: var(--paper); }
+  #timelines{
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 20px 16px 8px 16px;
+  }
+  .timeline{ position:relative; padding-left:24px; display:none; }
+  .timeline.active{ display:block; }
+  .timeline::before{
+    content:""; position:absolute; left:5px; top:4px; bottom:4px; width:2px;
+    background: repeating-linear-gradient(to bottom, var(--ink) 0 5px, transparent 5px 10px);
+  }
+  .item{ position:relative; padding: 12px 0 12px 20px; border-bottom: 1px dashed rgba(30,27,22,0.15); }
+  .item:last-child{ border-bottom: none; }
+  .item::before{
+    content:""; position:absolute; left:-24px; top:50%;  transform:translateY(-50%);
+    width:11px; height:11px; border-radius:50%;
+    background: var(--card); border:2px solid var(--ink);
+  }
+  .item.now::before{ background: var(--coral); border-color: var(--coral); }
+  .item.now .item-title{ color: var(--coral); }
+  .item-time{
+    display:inline-block; font-size:0.68rem; font-weight:700;
+    color: var(--ink-soft); background: rgba(30,27,22,0.07);
+    border-radius:999px; padding: 1px 8px; margin-bottom:5px;
+  }
+  .item.now .item-time{ color: var(--coral); background: rgba(242,100,59,0.1); }
+  .item-title{ font-size:1.05rem; font-weight:700; line-height:1.4; }
+  .item-tag{
+    display:inline-block; margin-top:5px;
+    font-family:'Gaegu'; font-size:0.8rem;
+    background: var(--coral); color:#fff;
+    padding: 1px 10px; border-radius: 999px;
+  }
+
+  /* ---------- SONG LIST ---------- */
+  .song-wrap{
+    margin:12px 0 0;
+    padding:14px 16px;
+    background:var(--paper);
+    border:2px solid var(--ink);
+    border-radius:16px;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .song-playlist{
+    display:flex; align-items:center; justify-content:center; gap:5px;
+    margin-top:12px;
+    font-family:'Gaegu',cursive; font-weight:700; font-size:0.85rem;
+    color:#fff; background:var(--coral);
+    padding:7px 14px; border-radius:10px;
+    text-decoration:none;
+    border:1.5px solid var(--ink);
+    box-shadow:2px 2px 0 var(--ink);
+  }
+  .song-list{ list-style:none; margin:0; padding:0; }
+  .song-list li{
+    display:flex; align-items:center; gap:10px;
+    padding:8px 0;
+    border-bottom:1px dashed rgba(30,27,22,0.15);
+  }
+  .song-list li:last-child{ border-bottom:none; }
+  .song-list .song-tbd{ color:var(--ink-soft); font-style:italic; font-size:0.85rem; }
+  .song-num{
+    display:flex; align-items:center; justify-content:center;
+    width:22px; height:22px; border-radius:50%; flex-shrink:0;
+    background:var(--coral); color:#fff;
+    font-family:'Gaegu',cursive; font-weight:700; font-size:0.78rem;
+  }
+  .song-title{ flex:1; font-size:0.88rem; color:var(--ink); line-height:1.4; word-break:keep-all; }
+  .song-tag{ font-size:0.72rem; color:var(--ink-soft); background:var(--paper); border:1px solid rgba(30,27,22,0.25); border-radius:999px; padding:1px 8px; flex-shrink:0; }
+  .song-team{ margin:10px 0 0; font-size:0.78rem; color:var(--ink-soft); border-top:1px dashed rgba(30,27,22,0.2); padding-top:8px; line-height:1.8; }
+  .card-section{ padding:12px 0; border-bottom:1px dashed rgba(30,27,22,0.15); }
+  .card-section:last-of-type{ border-bottom:none; }
+  .card-section-header{ display:flex; align-items:baseline; gap:8px; margin-bottom:8px; }
+  .card-section-label{ font-size:0.95rem; font-weight:700; color:var(--coral); letter-spacing:0.04em; }
+  .card-section-by{ font-size:0.78rem; color:var(--ink-soft); }
+  .sermon-title{ font-size:1rem; font-weight:700; color:var(--ink); word-break:keep-all; margin:4px 0 4px; }
+  .sermon-verse{ font-size:0.88rem; color:var(--ink-soft); }
+
+
+  /* ---------- POOL LIST ---------- */
+  .pool-list{
+    list-style:none; padding:0;
+    max-width:560px; margin:0 auto;
+  }
+  .pool-list li{
+    display:flex; align-items:baseline; gap:16px;
+    padding: 14px 0;
+    border-bottom: 2px dashed var(--ink);
+  }
+  .pool-list li:last-child{ border-bottom:none; }
+  .pool-key{
+    font-family:'Gaegu',cursive; font-weight:700;
+    color: var(--coral); font-size:1.1rem;
+    min-width:40px; flex-shrink:0;
+  }
+  .pool-val{ font-size:1rem; color:var(--ink); }
+
+  /* ---------- CHECKLIST ---------- */
+  .check-note{ text-align:center; color: var(--ink-soft); font-size:0.85rem; margin-top:-16px; margin-bottom:26px; }
+  .check-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(190px,1fr)); gap:12px; }
+  .check-item{
+    display:flex; align-items:center; gap:10px;
+    background: var(--card); border:2px solid var(--ink); border-radius:12px;
+    padding: 12px 15px; cursor:pointer; user-select:none;
+  }
+  .check-item input{ width:18px; height:18px; accent-color: var(--coral); flex-shrink:0; }
+  .check-item.checked{ opacity:0.5; text-decoration:line-through; }
+  .check-item span{ font-size:0.92rem; }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{ border-bottom: 2px dashed var(--ink); padding: 16px 4px; }
+  .faq-item:last-child{ border-bottom:none; }
+  .faq-q{ display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:700; font-size:1rem; }
+  .faq-q::after{ content:"+"; color: var(--coral); font-size:1.3rem; font-family:'Gaegu'; }
+  .faq-item.open .faq-q::after{ content:"−"; }
+  .faq-a{ max-height:0; overflow:hidden; color: var(--ink-soft); font-size:0.92rem; transition: max-height 0.25s ease; }
+  .faq-item.open .faq-a{ max-height:200px; margin-top:8px; }
+
+  /* ---------- SEE YOU ---------- */
+  .see-you-wrap{ text-align:center; padding: 40px 22px 20px; }
+  .see-you-box{
+    display:inline-block;
+    padding: 28px 40px;
+    background: var(--coral);
+    border-color: var(--ink);
+    color: #fff;
+  }
+  .see-you-text{
+    font-family:'Gaegu',cursive; font-weight:700;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    margin: 0 0 6px;
+    color: #fff;
+  }
+  .see-you-sub{
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+
+  footer{ text-align:center; padding: 30px 24px 50px; color: var(--ink-soft); font-size:0.8rem; }
+  body{ padding-bottom: 88px; }
+
+  /* ---------- SHARE BUTTON ---------- */
+  .share-btn{
+    display:inline-flex; align-items:center; gap:7px;
+    padding: 10px 22px;
+    background: var(--card);
+    border: 2px solid var(--ink); border-radius: 999px;
+    box-shadow: 3px 3px 0 var(--ink);
+    font-family:'Gaegu',cursive; font-weight:700; font-size:1.3rem;
+    cursor:pointer; color:var(--ink);
+    margin-top: 18px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .share-btn.copied{ background:var(--coral); color:#fff; border-color:var(--coral); }
+
+  /* ---------- MAP LINK ---------- */
+  .map-link{
+    color: var(--coral);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 3px;
+  }
+  .map-link:active{ opacity: 0.7; }
+
+  /* ---------- FLOAT NAV ---------- */
+  .float-nav{
+    position:fixed; bottom:calc(16px + env(safe-area-inset-bottom, 0px)); left:16px; right:16px;
+    display:flex;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: saturate(200%) blur(28px);
+    -webkit-backdrop-filter: saturate(200%) blur(28px);
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 999px;
+    box-shadow:
+      0 8px 32px rgba(0,0,0,0.10),
+      inset 0 1.5px 0 rgba(255,255,255,0.75),
+      inset 0 -1px 0 rgba(0,0,0,0.04);
+    z-index:200;
+    padding: 5px;
+  }
+  .float-nav a{
+    flex:1;
+    display:flex; flex-direction:column; align-items:center; gap:3px;
+    padding: 9px 0 8px;
+    text-decoration:none;
+    color: var(--ink-soft);
+    font-family:'Pretendard',sans-serif; font-size:0.68rem; font-weight:700; letter-spacing:-0.1px;
+    border-radius: 999px;
+    transition: color 0.2s;
+  }
+  .float-nav a{ position: relative; z-index: 1; }
+  .float-nav a.fn-active{ color: var(--coral); }
+  .nav-indicator{
+    position: absolute;
+    top: 5px; bottom: 5px; left: 0; width: 25%;
+    background: rgba(242,100,59,0.15);
+    border-radius: 999px;
+    box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.85), 0 1px 8px rgba(242,100,59,0.12);
+    transition: left 0.32s cubic-bezier(0.34, 1.4, 0.64, 1), width 0.25s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .group-card-btn .live-title{ font-size: clamp(0.85rem, 3.8vw, 1.15rem); word-break: keep-all; }
+
+  /* ---------- GROUP CARD ---------- */
+  .group-card-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 18px 16px;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .group-card-btn.locked{
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .group-card-btn.active:hover{
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+  .group-card-btn.closed{
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ---------- BAND SECTION ---------- */
+  .band-section{
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .band-photo{
+    width: 100%;
+    border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+    border: 2px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    display: block;
+    margin: 0 auto 24px;
+    object-fit: cover;
+  }
+  .band-message{
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+    color: var(--ink);
+    line-height: 1.7;
+    word-break: keep-all;
+    margin: 0 0 20px;
+  }
+  .band-sub{
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0 0 22px;
+    word-break: keep-all;
+    line-height: 1.8;
+  }
+  .band-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: var(--coral);
+    color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 var(--ink);
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .band-btn:active{
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .band-members-note{
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    margin-top: 10px;
+  }
+
+  /* ---------- COMING SOON ---------- */
+  #coming-soon{
+    display: none;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--paper);
+    gap: 20px;
+  }
+  .cs-logo{ width: 160px; height: auto; }
+  .cs-title{
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  .cs-sub{
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin: 0;
+    word-break: keep-all;
+  }
+  .show-coming-soon body > *:not(#coming-soon){ display: none !important; }
+  .show-coming-soon #coming-soon{ display: flex; }
+</style>
+<script>
+  (function(){
+    var now = new Date();
+    var end = new Date("2026-08-31T00:00:00+09:00");
+    if(now >= end) document.documentElement.classList.add('show-coming-soon');
+  })();
+</script>
+</head>
+<body id="top">
+
+<div id="coming-soon">
+  <img src="logo.png" alt="다니엘 청년부 로고" class="cs-logo">
+  <p class="cs-title">잠시 준비 중이에요,<br>더 좋은 소식을 가지고 돌아올게요</p>
+</div>
+
+<section class="hero">
+  <div class="logo-block">
+    <img src="logo.png" alt="다니엘 청년부 로고" class="logo-img">
+    <div class="logo-summer-block">
+      <div class="logo-summer-text">SUMMER</div>
+      <div class="logo-retreat-text">RETREAT</div>
+    </div>
+  </div>
+  <h1>2026년 다니엘 청년부 여름 수련회</h1>
+  <p class="tagline">"그리스도, 우리의 소망"</p>
+  <div class="hero-info">
+  <ol class="info-list">
+    <li><b>장소</b> : 양주 크라운 해태 수련원</li>
+    <li><b>위치</b> : <a class="map-link" href="https://naver.me/xYNu2vR4" target="_blank" rel="noopener">경기도 양주시 백석읍 권율로 721</a></li>
+    <li><b>날짜</b> : 2026. 8. 16(일) – 8. 18(화)</li>
+    <li><b>회비</b> : 신청서 작성하기 참조</li>
+  </ol>
+  <div class="cards-row">
+    <div class="live-card sticker">
+      <div class="live-label"><span class="dot"></span><span id="liveLabel">D-DAY 계산 중</span></div>
+      <div class="live-title" id="liveTitle">잠시만요...</div>
+      <div class="countdown" id="countdown" style="display:none">
+        <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">일</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">시</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">분</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">초</span></div>
+      </div>
+      <div class="live-sub" id="liveSub"></div>
+    </div>
+    <div style="display:flex;gap:14px;width:100%;">
+      <a id="registerBtn" class="group-card-btn sticker locked" href="#" onclick="return false;">
+        <div class="live-label"><span>🔒</span><span>신청서 작성</span></div>
+        <div class="live-title">추후 공개</div>
+      </a>
+      <a id="groupBtn" class="group-card-btn sticker active" href="groups.html">
+        <div class="live-label"><span>👥</span><span>조 편성</span></div>
+        <div class="live-title">조편성 보러가기 ↗</div>
+      </a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<section>
+  <div class="wrap" id="photo">
+    <div class="section-head">
+      <div class="eyebrow hand"사진 공유</div>
+      <h2>찍은 사진을 공유해주세요</h2>
+    </div>
+    <div class="band-section">
+      <img src="group-photo.jpeg" alt="단체 사진" class="band-photo">
+      <p class="band-message">
+        여름 수련회가 벌써 끝났네요.<br>
+        2박 3일, 좋은 추억이 되었으면 좋겠어요.<br>
+        📸 사진이 있다면 밴드에 공유 해주세요!
+      </p>
+      <a class="band-btn" href="https://www.band.us/band/93419104/album/95089824" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        네이버 밴드 앨범에 사진 올리기
+      </a>
+      <p class="band-members-note">밴드에 가입되어 있지 않다면 목장 리더님께 문의해주세요.</p>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<section>
+  <div class="wrap" id="theme">
+    <div class="section-head">
+      <div class="eyebrow hand">표어</div>
+      <h2 style="font-size: clamp(2.4rem, 7vw, 3.4rem);">그리스도, 우리의 소망</h2>
+    </div>
+    <div class="slideshow" id="slideshow">
+      <div class="slide active"><img src="hongbo2.png" alt="홍보물 2"></div>
+      <div class="slide"><img src="hongbo3.png" alt="홍보물 3"></div>
+      <div class="slide"><img src="hongbo4.jpeg" alt="홍보물 4"></div>
+    </div>
+    <div class="slide-dots" id="slideDots"></div>
+    <p style="text-align:center; font-size:0.78rem; color:var(--ink-soft); margin:8px 0 0;">이미지를 탭하면 크게 볼 수 있어요</p>
+    <blockquote class="verse-block">
+      <p class="verse-text">
+        <span class="verse-line">"소망이 우리를 부끄럽게 하지 아니함은</span><span class="verse-line">우리에게 주신 성령으로 말미암아</span><span class="verse-line">하나님의 사랑이 우리 마음에 부은 바 됨이니"</span>
+      </p>
+      <cite class="verse-cite">— 로마서 5:5 (개역개정)</cite>
+    </blockquote>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">일정표</div>
+      <h2>이렇게 진행돼요</h2>
+    </div>
+    <p class="check-note">일정은 상황에 따라 변경될 수 있어요.</p>
+    <div class="day-tabs">
+      <button class="day-tab" data-day="0">8/16 (일)</button>
+      <button class="day-tab" data-day="1">8/17 (월)</button>
+      <button class="day-tab" data-day="2">8/18 (화)</button>
+    </div>
+    <div id="timelines"></div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<section id="pool">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">물놀이</div>
+      <h2>히든밸리 송추</h2>
+    </div>
+    <p style="text-align:center;color:var(--ink-soft);font-size:0.92rem;margin:-14px 0 26px;">물놀이 날에는 외부 수영장으로 이동해요.</p>
+    <ul class="pool-list">
+      <li><span class="pool-key">장소</span><span class="pool-val">히든밸리 송추</span></li>
+      <li><span class="pool-key">위치</span><span class="pool-val"><a class="map-link" href="https://naver.me/xbAMIHaG" target="_blank" rel="noopener">경기 양주시 장흥면 교현리 127-2</a></span></li>
+      <li><span class="pool-key">시간</span><span class="pool-val">13:00~17:00 (16:20 퇴수시간)</span></li>
+      <li><span class="pool-key">복장</span><span class="pool-val">수영모 또는 야구모자 + 수영복이나 래쉬가드 필수</span></li>
+    </ul>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<section id="checklist">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">짐 챙기기</div>
+      <h2>준비물 체크리스트</h2>
+    </div>
+    <p class="check-note">해당 자료는 참고용이에요.</p>
+    <p class="check-note">본인에게 필요한 물품은 각자 준비해주세요 !</p>
+    <div class="check-grid" id="checkGrid">
+      <label class="check-item checked" style="cursor:default;" onclick="return false;"><input type="checkbox" checked style="cursor:default;"><span>이렇게 활용해보세요 !</span></label>
+      <label class="check-item"><input type="checkbox" data-key="cap"><span>수영모 / 야구모자</span></label>
+      <label class="check-item"><input type="checkbox" data-key="swim"><span>수영복 또는 래쉬가드</span></label>
+      <label class="check-item"><input type="checkbox" data-key="towel"><span>수건 / 여벌 옷</span></label>
+      <label class="check-item"><input type="checkbox" data-key="toiletry"><span>세면도구</span></label>
+      <label class="check-item"><input type="checkbox" data-key="bible"><span>성경 / 필기구</span></label>
+      <label class="check-item"><input type="checkbox" data-key="meds"><span>개인 상비약</span></label>
+      <label class="check-item"><input type="checkbox" data-key="meds"><span>기타 개인 물품</span></label>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">궁금해요</div>
+      <h2>FAQ</h2>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<div class="see-you-wrap">
+  <div class="see-you-box sticker">
+    <p class="see-you-text">두근 두근 설레는 마음으로</p>
+    <p class="see-you-text">모두 수련회에서 만나요!</p>
+    <p class="see-you-sub">대화교회 다니엘 청년부 운영위원회 일동</p>
+  </div>
+</div>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<footer>
+  <button class="share-btn" id="shareBtn" style="margin: 0 0 14px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> 같이 갈 청년에게 공유하기</button>
+  <p style="margin:0 0 4px;">다니엘 청년부 여름 수련회</p>
+  <p style="margin:0;">© 2026 xub2. All rights reserved.</p>
+</footer>
+
+<script>
+  /* ---------- SLIDESHOW ---------- */
+  (function(){
+    const slideshow = document.getElementById('slideshow');
+    const slides = Array.from(document.querySelectorAll('#slideshow .slide'));
+    const dotsWrap = document.getElementById('slideDots');
+    let current = 0;
+
+    const order = slides.map((_, i) => i);
+    for(let i = order.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+
+    const dots = order.map((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', `슬라이드 ${i+1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    function goTo(idx){
+      slides[order[current]].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = idx;
+      slides[order[current]].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function initHeight(){
+      const w = slideshow.offsetWidth;
+      const imgs = slides.map(s => s.querySelector('img'));
+      const heights = imgs.map(img =>
+        img.naturalWidth > 0 ? w * img.naturalHeight / img.naturalWidth : 0
+      );
+      const maxH = Math.max(...heights);
+      if(maxH > 0) slideshow.style.height = maxH + 'px';
+    }
+
+    const allImgs = slides.map(s => s.querySelector('img'));
+    let loaded = 0;
+    allImgs.forEach(img => {
+      const onLoad = () => { if(++loaded === allImgs.length) initHeight(); };
+      img.complete ? onLoad() : img.addEventListener('load', onLoad, {once:true});
+    });
+
+    setInterval(() => goTo((current + 1) % slides.length), 3500);
+
+    slideshow.addEventListener('click', () => {
+      const img = slides[order[current]].querySelector('img');
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+    });
+  })();
+
+  const schedule = [
+    { date: "2026-08-16", items: [
+      { time:"16:00–17:00", title:"수련회 출발 및 도착", emoji:"🚌" },
+      { time:"17:00–19:00", title:"석식 및 휴식", emoji:"🍽️" },
+      { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
+        sermon:{ title:"The 믿음", verse:"롬 4:13-25" },
+        playlist:"https://youtube.com/playlist?list=PLTJ6c5xQ22So&si=SPHio_yv2z8kJobh",
+        songs:[
+          { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
+          { title:"사랑을 나눠요", tag:"축복" },
+          { title:"Thank you lord", tag:"감사" },
+          { title:"주 사랑 놀라와", tag:"경배" },
+          { title:"보고 들은 자", tag:"결단" },
+          { title:"주 예수보다 더 귀한 것은 없네 + 내 안에 가장 귀한 것", tag:"고백" },
+          { title:"이것이 영원한 삶", tag:"경배" },
+        ],
+        team:"건반: 고예빈 / 드럼: 최중수 / 일렉: 박병돈\n싱어: 윤희영, 김영빈, 박지현, 양희선, 박성원\n워십: 백윤진, 이한별"
+      },
+      { time:"21:00–22:00", title:"조별 나눔", emoji:"💬" },
+    ]},
+    { date: "2026-08-17", items: [
+      { time:"07:00–08:00", title:"기상 및 세면, 조식", emoji:"🌅" },
+      { time:"08:00–09:00", title:"아침 QT", emoji:"📖" },
+      { time:"09:00–10:00", title:"조별 활동", emoji:"⚡" },
+      { time:"10:00–12:00", title:'토크콘서트', emoji:"🎤",
+        talkshow:{ hosts:["박성원 청년", "박지현 청년"], guests:[["김인걸 부장집사님", "변지원 집사님"], ["김장우 집사님", "황주아 집사님"]], revealAt:"2026-08-17T07:00:00+09:00" }
+      },
+      { time:"12:00–13:00", title:"중식", emoji:"🍱" },
+      { time:"13:00–17:00", title:"물놀이", emoji:"🌊"},
+      { time:"17:00–18:00", title:"휴식", emoji:"😌" },
+      { time:"18:00–19:00", title:"석식", emoji:"🍽️" },
+      { time:"19:00–21:00", title:"저녁 집회", emoji:"🙏",
+        sermon:{ title:"소망이 도착했습니다", verse:"롬 5:1-11" },
+        playlist:"https://youtube.com/playlist?list=PLc2GTK-CNu5Q&si=bzgUZaqjj3AAZHSa",
+        songs:[
+          { title:"하나님의 사랑이 + 사랑의 주님이", tag:"축복" },
+          { title:"사랑을 나눠요", tag:"축복" },
+          { title:"보고 들은 자", tag:"결단" },
+          { title:"주와 함께 걸어가네", tag:"결단" },
+          { title:"빈 무덤", tag:"경배" },
+          { title:"내 삶의 이유라", tag:"경배" },
+          { title:"주님만 사랑하리 + 나의 모습 나의 소유", tag:"결단" },
+        ],
+        team:"건반: 고예빈 / 드럼: 최중수 / 일렉: 박병돈\n싱어: 윤희영, 박세인, 김영빈, 권지은, 박지현, 양희선, 김정민\n워십: 백윤진, 이한별"
+      },
+      { time:"21:00–22:00", title:"조별 나눔", emoji:"💬" },
+    ]},
+    { date: "2026-08-18", items: [
+      { time:"07:00–08:00", title:"기상 및 세면, 조식", emoji:"🌅" },
+      { time:"08:00–09:00", title:"조별 활동", emoji:"⚡" },
+      { time:"09:00–10:00", title:"파송 예배", emoji:"🙏", sermon:{ title:"그리스도, 우리의 소망", verse:"롬 5:12-21" } },
+      { time:"10:00–11:00", title:"촬영, 수련회 뒷정리", emoji:"📸" },
+      { time:"11:00–12:00", title:"중식", emoji:"🍱" },
+      { time:"12:00–13:00", title:"이동", emoji:"🚌" },
+      { time:"13:00–", title:"해산", emoji:"👋" },
+    ]},
+  ];
+
+  const tabs = document.querySelectorAll('.day-tab');
+  const timelineWrap = document.getElementById('timelines');
+
+  function parseRange(dateStr, timeStr){
+    const [startStr, endStr] = timeStr.split('–');
+    const mk = (t) => {
+      if(!t) return null;
+      const [h,m] = t.split(':').map(Number);
+      const d = new Date(dateStr + "T00:00:00+09:00");
+      d.setHours(h, m || 0, 0, 0);
+      return d;
+    };
+    return { start: mk(startStr), end: endStr ? mk(endStr) : null };
+  }
+
+  function render(){
+    const now = new Date();
+    timelineWrap.innerHTML = '';
+    schedule.forEach((day, di) => {
+      const tl = document.createElement('div');
+      tl.className = 'timeline' + (di === 0 ? ' active' : '');
+      tl.dataset.day = di;
+      day.items.forEach(it => {
+        const { start, end } = parseRange(day.date, it.time);
+        const isNow = start && end && now >= start && now < end;
+        const div = document.createElement('div');
+        div.className = 'item' + (isNow ? ' now' : '');
+        let cardHtml = '';
+        if(it.talkshow){
+          const hostStr = it.talkshow.hosts.join(', ');
+          const guestRevealed = it.talkshow.revealAt && now >= new Date(it.talkshow.revealAt);
+          const guestStr = guestRevealed
+            ? it.talkshow.guests.map(pair => '- ' + pair.join(' & ')).join('<br>')
+            : 'Coming soon 🎉';
+          cardHtml = `<div class="song-wrap">
+            <div class="card-section">
+              <div class="card-section-header"><span class="card-section-label">토크콘서트</span><span class="card-section-by">${hostStr}</span></div>
+              <div class="sermon-title">"응답하라 다니엘 청년부"</div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-header"><span class="card-section-label">특별 게스트</span></div>
+              <div class="sermon-verse" style="font-size:1rem;">${guestStr}</div>
+            </div>
+          </div>`;
+        } else if(it.songs != null || it.sermon){
+          const sermonSection = it.sermon
+            ? `<div class="card-section">
+                <div class="card-section-header"><span class="card-section-label">말씀</span><span class="card-section-by">서성진 목사님</span></div>
+                <div class="sermon-title">${it.sermon.title}</div>
+                <div class="sermon-verse">${it.sermon.verse}</div>
+               </div>`
+            : '';
+          const listItems = (it.songs && it.songs.length)
+            ? it.songs.map((s,i) => `<li><span class="song-num">${i+1}</span><span class="song-title">${s.title}</span></li>`).join('')
+            : `<li class="song-tbd">찬양 목록 업데이트 예정</li>`;
+          const songsSection = it.songs != null
+            ? `<div class="card-section">
+                <div class="card-section-header"><span class="card-section-label">찬양</span><span class="card-section-by">라온 찬양팀</span></div>
+                <ol class="song-list">${listItems}</ol>
+               </div>`
+            : '';
+          const playlistBtn = it.playlist
+            ? `<a class="song-playlist" href="${it.playlist}" target="_blank" rel="noopener">▶ 찬양 플레이리스트 보기 (Youtube)</a>`
+            : '';
+          cardHtml = `<div class="song-wrap">${sermonSection}${songsSection}${playlistBtn}</div>`;
+        }
+        div.innerHTML = `<div class="item-time">${it.time}</div>
+          <div class="item-title">${it.emoji ? it.emoji + ' ' : ''}${it.title}</div>
+          ${it.tag ? `<span class="item-tag">${it.tag}</span>` : ''}
+          ${isNow ? `<span class="item-tag" style="background:var(--ink);">지금 진행중</span>` : ''}
+          ${cardHtml}`;
+        tl.appendChild(div);
+      });
+      timelineWrap.appendChild(tl);
+    });
+  }
+  render();
+
+  // 수련회 기간 중 오늘 날짜 탭 자동 선택
+  (function(){
+    const now = new Date();
+    const dates = [
+      new Date("2026-08-16T00:00:00+09:00"),
+      new Date("2026-08-17T00:00:00+09:00"),
+      new Date("2026-08-18T00:00:00+09:00"),
+    ];
+    let active = 0;
+    dates.forEach((d, i) => {
+      if(now.getFullYear()===d.getFullYear() && now.getMonth()===d.getMonth() && now.getDate()===d.getDate()) active = i;
+    });
+    tabs[active].classList.add('active');
+    document.querySelectorAll('.timeline').forEach(tl => {
+      tl.classList.toggle('active', tl.dataset.day === String(active));
+    });
+  })();
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.timeline').forEach(tl => {
+        tl.classList.toggle('active', tl.dataset.day === tab.dataset.day);
+      });
+    });
+  });
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function updateLive(){
+    const now = new Date();
+    const start = new Date("2026-08-16T16:00:00+09:00");
+    const end = new Date("2026-08-18T13:00:00+09:00");
+    const label = document.getElementById('liveLabel');
+    const title = document.getElementById('liveTitle');
+    const sub = document.getElementById('liveSub');
+    const countdown = document.getElementById('countdown');
+
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const startDay = new Date(2026, 7, 16);
+
+    if(now < start){
+      const diff = start - now;
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+
+      label.textContent = "D-DAY";
+      if(today.getTime() === startDay.getTime()){
+        countdown.style.display = 'flex';
+        document.getElementById('cd-days').textContent = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent = pad(mins);
+        document.getElementById('cd-secs').textContent = pad(secs);
+        title.textContent = "오늘 출발이에요!";
+        sub.textContent = "";
+      } else if(days < 3){
+        countdown.style.display = 'flex';
+        document.getElementById('cd-days').textContent = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent = pad(mins);
+        document.getElementById('cd-secs').textContent = pad(secs);
+        title.textContent = "수련회까지";
+        sub.textContent = "";
+      } else {
+        countdown.style.display = 'none';
+        title.innerHTML = `수련회까지 <span style="color:var(--coral)">${days}</span>일 남았어요`;
+        sub.textContent = "2026. 8. 16(일) 16:00 출발";
+      }
+    } else if(now >= start && now < end){
+      countdown.style.display = 'none';
+      label.textContent = "지금 수련회 중";
+      let current = null;
+      schedule.forEach(day => day.items.forEach(it => {
+        const { start:s, end:e } = parseRange(day.date, it.time);
+        if(s && e && now >= s && now < e) current = it;
+      }));
+      title.textContent = current ? current.title : "쉬는 시간";
+      sub.textContent = current ? current.time : "";
+    } else {
+      countdown.style.display = 'none';
+      label.textContent = "수련회 종료";
+      title.textContent = "함께한 시간, 감사합니다";
+      sub.textContent = "";
+    }
+  }
+  updateLive();
+  setInterval(updateLive, 1000);
+
+  (function(){
+    const btn = document.getElementById('groupBtn');
+    const start = new Date("2026-08-16T00:00:00+09:00");
+    const end = new Date("2026-08-18T13:00:00+09:00");
+    const now = new Date();
+    if(now >= start && now < end){
+      btn.classList.remove('locked');
+      btn.classList.add('active');
+      btn.href = 'groups.html';
+      btn.onclick = null;
+      btn.innerHTML = '<div class="live-label"><span>👥</span><span>조편성</span></div><div class="live-title">조편성 보러가기 ↗</div>';
+    }
+  })();
+
+  (function(){
+    const registerUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfhE4v1_xASQK3JgZ2uJmznhyBHCI0fBkjT1hQ6Ywszw0yaAg/viewform"; // 신청 링크 여기에 추가
+    const btn = document.getElementById('registerBtn');
+    const open = new Date("2026-08-01T00:00:00+09:00");
+    const deadline = new Date("2026-08-16T14:00:00+09:00");
+    const now = new Date();
+    if(registerUrl && now >= open && now < deadline){
+      btn.classList.remove('locked');
+      btn.classList.add('active');
+      btn.href = registerUrl;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.onclick = null;
+      btn.innerHTML = '<div class="live-label"><span>✏️</span><span>신청서 작성</span></div><div class="live-title">지금 신청하기 ↗</div>';
+    } else if(now >= deadline){
+      btn.classList.remove('locked');
+      btn.classList.add('closed');
+      btn.href = '#';
+      btn.onclick = function(){ return false; };
+      btn.innerHTML = '<div class="live-label"><span>🚫</span></div><div class="live-title">신청 마감</div>';
+    }
+  })();
+
+  const checkItems = document.querySelectorAll('.check-item input[data-key]');
+  checkItems.forEach(cb => {
+    const key = 'retreat-' + cb.dataset.key;
+    try{
+      cb.checked = localStorage.getItem(key) === '1';
+      cb.closest('.check-item').classList.toggle('checked', cb.checked);
+    }catch(e){}
+    cb.addEventListener('change', () => {
+      cb.closest('.check-item').classList.toggle('checked', cb.checked);
+      try{ localStorage.setItem(key, cb.checked ? '1' : '0'); }catch(e){}
+    });
+  });
+
+  // 사이트 공유하기
+  (function(){
+    const btn = document.getElementById('shareBtn');
+    const linkSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+    const checkSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+    btn.addEventListener('click', async () => {
+      const url = location.href.split('#')[0];
+      if(navigator.share){
+        try{
+          await navigator.share({ title:'다니엘 청년부 여름 수련회', text:'2026 다니엘 청년부 여름 수련회', url });
+        }catch(e){}
+      } else if(navigator.clipboard){
+        await navigator.clipboard.writeText(url);
+        btn.innerHTML = checkSvg + ' 링크 복사됨!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.innerHTML = linkSvg + ' 사이트 공유하기'; btn.classList.remove('copied'); }, 2000);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        btn.innerHTML = checkSvg + ' 링크 복사됨!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.innerHTML = linkSvg + ' 사이트 공유하기'; btn.classList.remove('copied'); }, 2000);
+      }
+    });
+  })();
+
+  // 플로팅 네비 스크롤 스파이
+  document.addEventListener('DOMContentLoaded', function(){
+    const floatNav = document.querySelector('.float-nav');
+    const navLinks = document.querySelectorAll('.float-nav a');
+    const sectionIds = ['top', 'theme', 'schedule', 'faq'];
+    const sections = sectionIds.map(id => document.getElementById(id));
+
+    const indicator = document.createElement('div');
+    indicator.className = 'nav-indicator';
+    floatNav.insertBefore(indicator, floatNav.firstChild);
+
+    function moveIndicator(index){
+      const navRect = floatNav.getBoundingClientRect();
+      const linkRect = navLinks[index].getBoundingClientRect();
+      indicator.style.left = (linkRect.left - navRect.left) + 'px';
+      indicator.style.width = linkRect.width + 'px';
+    }
+
+    function setActive(index){
+      navLinks.forEach((a, i) => a.classList.toggle('fn-active', i === index));
+      moveIndicator(index);
+    }
+    // 초기 위치는 레이아웃 후에 설정
+    requestAnimationFrame(() => {
+      indicator.style.transition = 'none';
+      moveIndicator(0);
+      requestAnimationFrame(() => { indicator.style.transition = ''; setActive(0); });
+    });
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + window.innerHeight * 0.35;
+      let current = 0;
+      sections.forEach((s, i) => { if(s && s.offsetTop <= scrollY) current = i; });
+      setActive(current);
+    }, { passive: true });
+  });
+
+  const faqs = [
+    { q:"회비를 현금으로 납부하고 싶어요.", a:"계좌이체 외에 현장에서 현금 납부도 가능해요. 계좌 및 금액 등 자세한 내용은 추후 업데이트 될 예정이에요." },
+    { q:"신청 마감일이 언제인가요?", a:"8월 16일 14:00까지 반드시 신청해주세요. 여행자 보험 가입 관계로 마감일 이후에는 보험 가입이 어려울 수 있습니다." },
+    { q:"신청이 마감되었다고 나와요.", a:"시간이 지나 신청이 마감 되었을 땐, 각 목장 리더나 운영위원에게 최대한 빠르게 알려주세요." },
+    { q:"따로 궁금한 점이 있어요.", a:"이외에 궁금한 점은 각 목장 리더나 운영위원에게 질문해주세요." },
+  ];
+  const faqList = document.getElementById('faqList');
+  faqs.forEach(f => {
+    const el = document.createElement('div');
+    el.className = 'faq-item';
+    el.innerHTML = `<div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div>`;
+    el.querySelector('.faq-q').addEventListener('click', () => el.classList.toggle('open'));
+    faqList.appendChild(el);
+  });
+</script>
+
+<nav class="float-nav">
+  <a href="#top">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    홈
+  </a>
+  <a href="#theme">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    표어
+  </a>
+  <a href="#schedule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    일정
+  </a>
+  <a href="#faq">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    FAQ
+  </a>
+</nav>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open')">×</button>
+  <img id="lightboxImg" src="" alt="" onclick="document.getElementById('lightbox').classList.remove('open')">
+</div>
+
+</body>
+</html>
+
