@@ -265,37 +265,6 @@ section { padding: 46px 0; position: relative; z-index: 1; }
   color: var(--ink-soft);
 }
 
-/* ---------- SONGS ---------- */
-.song-list-box {
-  max-width: 540px;
-  margin: 0 auto;
-  background: var(--card);
-  border: 2px solid var(--ink);
-  border-radius: 16px;
-  box-shadow: 4px 4px 0 var(--ink);
-  overflow: hidden;
-}
-.song-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 14px 20px;
-  border-bottom: 1px dashed rgba(26,42,94,0.14);
-}
-.song-row:last-child { border-bottom: none; }
-.song-badge {
-  flex-shrink: 0;
-  width: 26px; height: 26px;
-  background: var(--sky);
-  color: #fff;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Gaegu', cursive; font-weight: 700; font-size: 0.82rem;
-  margin-top: 2px;
-}
-.song-info { flex: 1; }
-.song-name { font-weight: 700; font-size: 0.97rem; color: var(--ink); margin: 0 0 2px; }
-
 
 /* ---------- SEE YOU ---------- */
 .see-you-wrap { text-align: center; padding: 40px 22px 20px; }
@@ -495,55 +464,6 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   </div>
 </section>
 
-<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
-
-<!-- SONGS -->
-<section id="songs">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow hand">노래 리스트</div>
-      <h2>Song List</h2>
-    </div>
-    <div class="song-list-box">
-      <div class="song-row">
-        <div class="song-badge">1</div>
-        <div class="song-info"><div class="song-name">We Wish!</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">2</div>
-        <div class="song-info"><div class="song-name">달리기</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">3</div>
-        <div class="song-info"><div class="song-name">잊지 마</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">4</div>
-        <div class="song-info"><div class="song-name">날 지켜주신</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">5</div>
-        <div class="song-info"><div class="song-name">모리의 분노</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">6</div>
-        <div class="song-info"><div class="song-name">비비드라라러브</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">7</div>
-        <div class="song-info"><div class="song-name">치유자</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">8</div>
-        <div class="song-info"><div class="song-name">달리기 repraise</div></div>
-      </div>
-      <div class="song-row">
-        <div class="song-badge">9</div>
-        <div class="song-info"><div class="song-name">영원히 함께하자</div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <div class="see-you-wrap">
   <div class="see-you-box sticker">
@@ -610,7 +530,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   document.addEventListener('DOMContentLoaded', function(){
     const floatNav = document.querySelector('.float-nav');
     const navLinks = document.querySelectorAll('.float-nav a');
-    const sectionIds = ['top','synopsis','characters','songs'];
+    const sectionIds = ['top','synopsis','characters'];
     const sections = sectionIds.map(id => document.getElementById(id));
 
     const indicator = document.createElement('div');
@@ -653,10 +573,6 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <a href="#characters">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     캐스트
-  </a>
-  <a href="#songs">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-    노래
   </a>
 </nav>
 
