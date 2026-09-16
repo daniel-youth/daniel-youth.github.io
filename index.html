@@ -61,105 +61,132 @@ body::before {
   100% { transform: translateY(108vh) rotate(360deg) translateX(-8px); opacity: 0;   }
 }
 
-/* Hand-drawn sticker style */
-.sticker {
-  background: var(--card);
-  border: 2px solid var(--ink);
-  border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
-  box-shadow: 5px 5px 0 var(--ink);
-}
 
 /* ---------- HERO ---------- */
 .hero {
-  text-align: center;
-  padding: 24px 22px 44px;
-  position: relative;
-  z-index: 1;
+  padding: 24px 0 0;
+  position: relative; z-index: 1;
 }
+.hero-top { text-align: center; padding: 0 22px 16px; }
 .logo-img {
   width: 120px;
   height: auto;
   display: block;
   margin: 0 auto 14px;
 }
+.logo-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
 .logo-musical-text {
   font-family: 'Caveat', cursive;
   font-weight: 700;
-  font-size: clamp(50px, 16vw, 66px);
+  font-size: clamp(48px, 15vw, 62px);
   color: var(--ink);
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   display: block;
-  line-height: 0.88;
+  line-height: 0.9;
   transform: rotate(-1.5deg);
 }
 .logo-title-text {
-  font-family: 'Jua', sans-serif;
-  font-weight: 400;
-  font-size: clamp(80px, 26vw, 90px);
+  font-family: 'Gaegu', cursive;
+  font-weight: 700;
+  font-size: clamp(72px, 23vw, 84px);
   color: var(--sky);
-  -webkit-text-stroke: 0;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   display: block;
-  line-height: 1.25;
-  transform: rotate(1.2deg) skewX(-8deg);
-  margin-top: 0;
+  line-height: 1;
+  transform: rotate(1.2deg);
+  white-space: nowrap;
+}
+.logo-title-text .q {
+  font-size: 0.72em;
+  color: var(--sky);
+  opacity: 0.85;
+  vertical-align: 0.06em;
+  margin: 0 -0.04em;
 }
 .hero-subtitle {
   font-size: clamp(0.92rem, 3.2vw, 1.15rem);
   color: var(--ink-soft);
-  margin: -8px 0 4px;
+  margin: 12px 0 0;
 }
-.tagline {
-  font-family: 'Gaegu', cursive;
-  font-weight: 700;
-  font-size: clamp(1.35rem, 5.5vw, 1.8rem);
-  color: var(--ink);
-  margin: 22px 0 28px;
-  line-height: 1.9;
+
+.hero-film {
+  position: relative;
+  background: var(--ink);
+  padding: 10px 0;
+}
+.hf-perf {
+  height: 10px;
+  background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(237,246,255,0.95) 10px 20px);
+}
+.hf-frames { display: flex; gap: 10px; padding: 10px 14px; }
+.hf-frame { background: #E4F1FB; border-radius: 4px; }
+.hf-date {
+  flex: 0 0 118px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 12px 6px;
+}
+.hf-ym {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.3rem; line-height: 1.3; color: var(--blue);
+  white-space: nowrap;
+}
+.hf-day {
+  font-family: 'Jua', sans-serif;
+  font-size: 2.9rem; line-height: 1.05; color: var(--ink);
+}
+.hf-meta {
+  flex: 1;
+  padding: 14px;
+  display: flex; flex-direction: column; justify-content: center; gap: 10px;
+}
+.hf-key {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 0.85rem; letter-spacing: 1px; color: var(--blue);
+}
+.hf-val {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.35rem; line-height: 1.2; color: var(--ink);
   word-break: keep-all;
 }
-.tagline-hl {
-  background: linear-gradient(transparent 52%, rgba(75,163,212,0.32) 52%);
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  padding: 0 6px;
+.hf-edge {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 18px 8px;
+  font-family: 'Caveat', cursive; font-weight: 700;
+  font-size: 0.95rem; letter-spacing: 2px; color: #8FC8E8;
+}
+.hf-snow { position: absolute; top: 0; left: 0; right: 0; pointer-events: none; }
+.hf-snow .hs-base {
+  position: absolute; top: -7px; left: 0; right: 0; height: 9px; background: #fff;
+}
+.hf-snow .hs-lump { position: absolute; background: #fff; border-radius: 50%; }
+.hf-snow .l1 { top: -12px; left: 40px;  width: 78px; height: 16px; }
+.hf-snow .l2 { top: -10px; left: 170px; width: 92px; height: 13px; }
+.hf-snow .l3 { top: -12px; right: 30px; width: 66px; height: 15px; }
+.hf-snow .hs-flake {
+  position: absolute; top: -26px; left: 74px;
+  width: 16px; height: 16px; transform: rotate(-12deg);
 }
 
-
-.info-card {
-  max-width: 380px;
-  margin: 0 auto;
-  padding: 22px 24px;
+.hero-caption {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 12px;
+  padding: 14px 22px 22px;
 }
-.info-card-title {
+.hc-quote {
+  margin: 0;
   font-family: 'Gaegu', cursive; font-weight: 700;
-  font-size: 1.2rem; color: var(--sky); letter-spacing: 3px;
-  text-align: center; margin-bottom: 16px;
+  font-size: 1.05rem; line-height: 1.5; color: var(--blue);
+  word-break: keep-all;
 }
-.info-grid {
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 14px 16px;
-  align-items: start;
-  max-width: 340px;
-  margin: 0 auto;
-  text-align: left;
+.hc-hand {
+  margin: 0; text-align: right;
+  font-family: 'Caveat', cursive; font-weight: 700;
+  font-size: 1.4rem; line-height: 1.1; color: var(--ink);
 }
-.info-icon { width: 28px; height: 28px; color: var(--sky); margin-top: 14px; }
-.info-label {
-  font-family: 'Gaegu', cursive; font-weight: 700;
-  font-size: 0.95rem; color: var(--sky); letter-spacing: 1px;
-}
-.info-value {
-  font-family: 'Gaegu', cursive; font-weight: 700;
-  font-size: clamp(1.25rem, 5vw, 1.55rem); line-height: 1.45;
-  color: var(--ink); word-break: keep-all;
-}
-.info-divider {
-  grid-column: 1 / -1;
-  height: 1px; background: rgba(26,42,94,0.12); margin: 6px 0;
-}
-
 /* Divider */
 .divider { width: 100%; height: 22px; margin: 6px 0; }
 .divider path { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linecap: round; }
@@ -170,117 +197,230 @@ section { padding: 46px 0; position: relative; z-index: 1; }
 .section-head h2 { font-size: clamp(2.2rem, 7vw, 3rem); margin: 0; }
 
 /* ---------- SYNOPSIS ---------- */
-.synopsis-box {
+.syn-card {
   max-width: 600px;
   margin: 0 auto;
-  padding: 28px 26px;
   background: var(--card);
   border: 2px solid var(--ink);
   border-radius: 18px;
   box-shadow: 4px 4px 0 var(--ink);
+  overflow: hidden;
 }
+.syn-quote {
+  position: relative;
+  background: var(--ink);
+  padding: 22px 22px 20px;
+  text-align: center;
+}
+.syn-perf {
+  position: absolute; top: 0; left: 0; right: 0; height: 8px;
+  background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(237,246,255,0.8) 10px 20px);
+}
+.syn-quote-text {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: clamp(1.35rem, 5vw, 1.6rem);
+  line-height: 1.7; color: #fff;
+  margin: 10px 0 0;
+  word-break: keep-all;
+}
+.syn-quote-sub {
+  font-family: 'Caveat', cursive; font-weight: 700;
+  font-size: 1.3rem; letter-spacing: 2px; color: #8FC8E8;
+  margin: 6px 0 0;
+}
+.syn-body { padding: 24px 22px 26px; }
 .synopsis-p {
   font-size: clamp(0.9rem, 3.5vw, 1.02rem);
   color: var(--ink);
-  line-height: 2;
-  margin: 0 0 16px;
+  line-height: 2.05;
+  margin: 0 0 18px;
   word-break: keep-all;
 }
 .synopsis-p:last-of-type { margin-bottom: 0; }
-.synopsis-highlight {
-  display: block;
-  font-family: 'Gaegu', cursive;
-  font-weight: 700;
-  font-size: clamp(0.85rem, 3.2vw, 1.1rem);
-  color: var(--sky);
-  text-align: center;
-  line-height: 1.9;
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 2px dashed rgba(75,163,212,0.4);
-  word-break: keep-all;
+.syn-foot { display: flex; align-items: center; gap: 8px; margin-top: 22px; }
+.syn-foot-line {
+  flex: 1; height: 2px;
+  background: repeating-linear-gradient(90deg, #B7CFE4 0 5px, transparent 5px 10px);
+}
+.syn-foot-date {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.05rem; color: var(--sky);
 }
 
 /* ---------- CHARACTERS ---------- */
-.char-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 14px;
+#characters .wrap { padding: 0; }
+#characters .section-head,
+#characters .cast-tier,
+#characters .cast-dots,
+#characters .cast-swipe-hint { padding-left: 22px; padding-right: 22px; }
+
+.cast-tier { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; }
+.cast-tier-label {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.35rem; line-height: 1; color: var(--ink);
 }
-.char-card {
-  background: var(--card);
-  border: 2px solid var(--ink);
-  border-radius: 16px;
-  box-shadow: 3px 3px 0 var(--ink);
-  padding: 18px 20px;
+.cast-tier-line {
+  flex: 1; height: 2px;
+  background: repeating-linear-gradient(90deg, #B7CFE4 0 6px, transparent 6px 12px);
 }
-.char-name {
-  font-family: 'Gaegu', cursive;
-  font-weight: 700;
-  font-size: 1.22rem;
-  color: var(--ink);
-  margin: 0 0 6px;
+.cast-tier + .cast-tier,
+.film-strip + .cast-dots + .cast-tier { margin-top: 30px; }
+
+.film-strip { background: var(--ink); padding: 10px 0; }
+.film-strip.film-sub { background: var(--sky); padding: 8px 0; }
+.film-perf {
+  height: 10px;
+  background: repeating-linear-gradient(90deg, transparent 0 12px, rgba(237,246,255,0.85) 12px 24px);
 }
-.char-meta {
-  font-size: 0.75rem;
-  color: var(--ink-soft);
-  margin: 0 0 4px;
+.film-perf.perf-sm {
+  height: 8px;
+  background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(237,246,255,0.9) 10px 20px);
 }
-.char-actor {
-  font-family: 'Gaegu', cursive;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--sky);
-  margin: 2px 0 10px;
+.film-track {
+  display: flex; gap: 12px;
+  overflow-x: auto;
+  padding: 10px 22px 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-.char-desc {
-  font-size: 0.87rem;
-  color: var(--ink-soft);
-  line-height: 1.75;
-  margin: 0;
+.film-track::-webkit-scrollbar { display: none; }
+.film-track.track-sm { gap: 9px; padding: 8px 22px; }
+
+.film-card {
+  flex: 0 0 200px;
+  scroll-snap-align: center;
+  background: var(--card); border-radius: 8px;
+  padding: 8px 8px 12px;
+}
+.film-photo {
+  aspect-ratio: 4/5;
+  background: #DCEDFA; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.film-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.film-photo svg { width: 40px; height: 40px; }
+.film-info { padding: 10px 4px 0; }
+.film-name {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.5rem; line-height: 1.1; color: var(--ink);
+}
+.film-actor {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.05rem; color: var(--sky);
+}
+.film-desc {
+  margin: 8px 0 0;
+  font-size: 0.8rem; line-height: 1.7; color: var(--ink-soft);
   word-break: keep-all;
 }
-.char-photo-wrap {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
-  background: var(--paper);
-  margin: 0 auto 16px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.char-photo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.char-photo-icon {
-  width: 36px;
-  height: 36px;
-  color: var(--ink-soft);
-}
 
-
-/* ---------- SEE YOU ---------- */
-.see-you-wrap { text-align: center; padding: 40px 22px 20px; }
-.see-you-box {
-  display: inline-block;
-  padding: 28px 40px;
-  background: var(--sky);
-  border-color: var(--ink);
-  color: #fff;
+.film-mini {
+  flex: 0 0 116px;
+  scroll-snap-align: center;
+  background: var(--card); border-radius: 6px;
+  padding: 5px 5px 8px; text-align: center;
 }
-.see-you-text {
+.film-mini .film-photo { aspect-ratio: 1/1; border-radius: 3px; }
+.film-mini .film-photo svg { width: 22px; height: 22px; }
+.film-mini-role {
   font-family: 'Gaegu', cursive; font-weight: 700;
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  margin: 0 0 6px; color: #fff;
+  font-size: 1rem; line-height: 1.2; margin-top: 5px; color: var(--ink);
 }
-.see-you-sub { font-size: 0.9rem; color: rgba(255,255,255,0.85); margin: 0; }
+.film-mini-actor { font-size: 0.78rem; line-height: 1.35; color: var(--ink); }
+
+.cast-dots { display: flex; justify-content: center; gap: 7px; margin-top: 12px; }
+.cast-dots .dot {
+  width: 7px; height: 7px; border-radius: 999px; background: #B7CFE4;
+  transition: width 0.25s, background 0.25s;
+}
+.cast-dots .dot.is-on { width: 22px; background: var(--sky); }
+.cast-swipe-hint {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1rem; color: var(--ink-soft);
+  text-align: center; margin: 14px 0 0;
+}
+
+
+/* ---------- STAFF ---------- */
+#staff .wrap { padding: 0; }
+#staff .section-head,
+#staff .closing { padding-left: 22px; padding-right: 22px; }
+
+.staff-strip { position: relative; background: var(--ink); padding: 9px 0; }
+.staff-body { padding: 16px 20px 14px; }
+.staff-edge {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Caveat', cursive; font-weight: 700;
+  font-size: 0.95rem; letter-spacing: 2px; color: #8FC8E8;
+  margin-bottom: 16px;
+}
+.staff-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.staff-cell { padding: 14px 0; }
+.staff-cell:nth-child(odd)  { padding-right: 14px; border-right: 1px solid rgba(143,200,232,0.35); }
+.staff-cell:nth-child(even) { padding-left: 14px; }
+.staff-cell:nth-child(1),
+.staff-cell:nth-child(2) { padding-top: 0; }
+.staff-cell:nth-last-child(1),
+.staff-cell:nth-last-child(2) { padding-bottom: 0; }
+.staff-cell:not(:nth-last-child(1)):not(:nth-last-child(2)) {
+  border-bottom: 1px solid rgba(143,200,232,0.35);
+}
+.staff-role {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 0.85rem; letter-spacing: 1.5px; color: #8FC8E8;
+}
+.staff-name {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.3rem; line-height: 1.25; color: #fff;
+  word-break: keep-all;
+}
+.staff-thanks {
+  margin: 18px 0 0; padding-top: 14px;
+  border-top: 1px dashed rgba(143,200,232,0.5);
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.1rem; color: #C4E4F5;
+  text-align: center; word-break: keep-all;
+}
+.staff-snow { position: absolute; top: 0; left: 0; right: 0; pointer-events: none; }
+.staff-snow .ss-base {
+  position: absolute; top: -6px; left: 0; right: 0; height: 8px; background: var(--paper);
+}
+.staff-snow .ss-lump { position: absolute; background: var(--paper); border-radius: 50%; }
+.staff-snow .l1 { top: -11px; left: 34px;  width: 72px; height: 15px; }
+.staff-snow .l2 { top: -9px;  left: 164px; width: 88px; height: 12px; }
+.staff-snow .l3 { top: -11px; right: 28px; width: 62px; height: 14px; }
+
+/* ---------- CLOSING ---------- */
+.closing { text-align: center; margin-top: 30px; }
+.closing-main {
+  margin: 0;
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: clamp(1.7rem, 6.5vw, 2rem);
+  line-height: 1.3; color: var(--ink);
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  word-break: keep-all;
+}
+.closing-flake { width: 0.7em; height: 0.7em; color: var(--sky); flex: 0 0 auto; }
+.closing-sub {
+  margin: 4px 0 0;
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: clamp(1.2rem, 4.5vw, 1.4rem);
+  color: var(--blue);
+}
+
+/* ---------- VIDEO ---------- */
+.video-wrap {
+  max-width: 640px; margin: 0 auto;
+  border-radius: 14px; overflow: hidden;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  aspect-ratio: 16/9;
+}
+.video-wrap iframe {
+  width: 100%; height: 100%; display: block; border: none;
+}
 
 footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); font-size: 0.8rem; }
 
@@ -335,34 +475,60 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   pointer-events: none;
   z-index: 0;
 }
+
+/* ---------- TICKET SNOW ---------- */
+/* ---------- POLAROID CARD ---------- */
 </style>
 </head>
 <body id="top">
 
 <!-- HERO -->
 <section class="hero">
-  <img src="logo.png" alt="다니엘 청년부 로고" class="logo-img">
-  <div>
-    <span class="logo-musical-text">MUSICAL</span>
-    <span class="logo-title-text">"달리기"</span>
+  <div class="hero-top">
+    <img src="logo.png" alt="다니엘 청년부 로고" class="logo-img">
+    <div class="logo-lockup">
+      <span class="logo-musical-text">MUSICAL</span>
+      <span class="logo-title-text">
+        <span class="q">"</span>달리기<span class="q">"</span>
+      </span>
+    </div>
+    <p class="hero-subtitle">대화교회 다니엘 청년부 성탄제</p>
   </div>
-  <p class="hero-subtitle">대화교회 다니엘 청년부 성탄제</p>
-  <p class="tagline"><span class="tagline-hl">"올겨울, 가장 숨이 찰 때<br>비로소 알게 되는 이야기"</span></p>
-  <div class="info-card sticker">
-    <div class="info-card-title">공연 안내</div>
-    <div class="info-grid">
-      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <div>
-        <div class="info-label">날짜 · 시간</div>
-        <div class="info-value">2026년 12월 ??일<br>오후 ??시</div>
+
+  <div class="hero-film">
+    <div class="hf-perf"></div>
+    <div class="hf-frames">
+      <div class="hf-frame hf-date">
+        <div class="hf-ym">2026년 12월</div>
+        <div class="hf-day">??일</div>
       </div>
-      <div class="info-divider"></div>
-      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <div>
-        <div class="info-label">장소</div>
-        <div class="info-value">대화교회 3층 본당</div>
+      <div class="hf-frame hf-meta">
+        <div>
+          <div class="hf-key">시간</div>
+          <div class="hf-val">오후 ??시</div>
+        </div>
+        <div>
+          <div class="hf-key">장소</div>
+          <div class="hf-val">대화교회 3층 본당</div>
+        </div>
       </div>
     </div>
+    <div class="hf-edge">
+      <span>RUNNING 2026</span><span>전석 무료 · 자유석</span>
+    </div>
+    <div class="hf-perf"></div>
+    <div class="hf-snow">
+      <span class="hs-base"></span>
+      <span class="hs-lump l1"></span>
+      <span class="hs-lump l2"></span>
+      <span class="hs-lump l3"></span>
+      <svg class="hs-flake" viewBox="0 0 24 24" fill="none" stroke="#8FC8E8" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
+    </div>
+  </div>
+
+  <div class="hero-caption">
+    <p class="hc-quote">"오늘도 피사체 훌륭하고,<br>밝기 좋음."</p>
+    <p class="hc-hand">let's run<br>together !</p>
   </div>
 </section>
 
@@ -373,19 +539,26 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow hand">줄거리</div>
-      <h2>이런 이야기예요</h2>
+      <h2>그 겨울, 우리가 달린 이유</h2>
     </div>
-    <div class="synopsis-box">
-      <p class="synopsis-p">
-        미래에 대한 불안으로 방황하던 청년 <strong>러너</strong>는 공원에서 사진작가 <strong>코드</strong>와 우연히 만나게 된다. 언제나 밝고 담담한 코드의 모습에서 위로와 용기를 얻어 가던 어느 날, 코드가 홀연히 자취를 감추고 만다.
-      </p>
-      <p class="synopsis-p" style="margin-bottom:0;">
-        코드를 찾아 나선 여정 속에서, 러너는 비로소 <strong>'함께한다'는 것의 진정한 의미</strong>를 깨닫기 시작한다.
-      </p>
-      <span class="synopsis-highlight">
-        올겨울, 가장 숨이 찰 때 비로소 알게 되는 이야기.<br>
-        창작 뮤지컬 《달리기》.
-      </span>
+    <div class="syn-card">
+      <div class="syn-quote">
+        <div class="syn-perf"></div>
+        <p class="syn-quote-text">올겨울, 가장 숨이 찰 때<br>비로소 알게 되는 이야기.</p>
+        <p class="syn-quote-sub">창작 뮤지컬 《달리기》</p>
+      </div>
+      <div class="syn-body">
+        <p class="synopsis-p">
+          미래에 대한 불안으로 방황하던 청년 <strong>러너</strong>는 공원에서 사진작가 <strong>코드</strong>와 우연히 만나게 된다. 언제나 밝고 담담한 코드의 모습에서 위로와 용기를 얻어 가던 어느 날, 코드가 홀연히 자취를 감추고 만다.
+        </p>
+        <p class="synopsis-p">
+          코드를 찾아 나선 여정 속에서, 러너는 비로소 <strong>'함께한다'는 것의 진정한 의미</strong>를 깨닫기 시작한다.
+        </p>
+        <div class="syn-foot">
+          <span class="syn-foot-line"></span>
+          <span class="syn-foot-date">2026. 12</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -397,81 +570,229 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow hand">캐스트</div>
-      <h2>이 사람들의 이야기</h2>
+      <h2>함께 달리는 사람들</h2>
     </div>
-    <div class="char-grid">
-      <div class="char-card">
-        <div class="char-photo-wrap">
+    <div class="cast-tier">
+      <span class="cast-tier-label">주연</span>
+      <span class="cast-tier-line"></span>
+    </div>
+  </div>
+
+  <div class="film-strip film-main">
+    <div class="film-perf"></div>
+    <div class="film-track">
+
+      <div class="film-card">
+        <div class="film-photo">
           <!-- 사진 준비되면: <img src="cast/runner.jpg" alt="달러너"> -->
-          <svg class="char-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </div>
-        <div class="char-name">달러너</div>
-        <div class="char-meta">27세 · INFP</div>
-        <div class="char-actor">OOO 청년</div>
-        <p class="char-desc">꿈도, 방향도 잃은 채 하루하루를 버텨가는 청년. 우연한 만남이 그의 삶을 조금씩 바꾸기 시작한다.</p>
-      </div>
-      <div class="char-card">
-        <div class="char-photo-wrap">
-          <!-- 사진 준비되면: <img src="cast/code.jpg" alt="레코드"> -->
-          <svg class="char-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <div class="film-info">
+          <div class="film-name">달러너</div>
+          <div class="film-actor">윤희영 · 27세 INFP</div>
+          <p class="film-desc">꿈도, 방향도 잃은 채 하루하루를 버텨가는 청년.</p>
         </div>
-        <div class="char-name">레코드(코드)</div>
-        <div class="char-meta">31세 · ENFJ</div>
-        <div class="char-actor">OOO 청년</div>
-        <p class="char-desc">사진작가로 살아가는 청년. 어떤 상황에서도 밝고 담담한 모습으로 주변에 조용한 힘이 되어준다.</p>
       </div>
-      <div class="char-card">
-        <div class="char-photo-wrap">
-          <!-- 사진 준비되면: <img src="cast/deulre.jpg" alt="민들레"> -->
-          <svg class="char-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+
+      <div class="film-card">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </div>
-        <div class="char-name">민들레(들레)</div>
-        <div class="char-meta">27세 · ISFJ</div>
-        <div class="char-actor">OOO 청년</div>
-        <p class="char-desc">러너의 동갑내기 친구. 따뜻하고 씩씩한 성격으로 늘 곁에서 응원해주는 존재.</p>
-      </div>
-      <div class="char-card">
-        <div class="char-photo-wrap">
-          <!-- 사진 준비되면: <img src="cast/mori.jpg" alt="메모리"> -->
-          <svg class="char-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <div class="film-info">
+          <div class="film-name">레코드</div>
+          <div class="film-actor">박세인 · 31세 ENFJ</div>
+          <p class="film-desc">사진작가로 살아가는 청년. 조용한 힘이 되어준다.</p>
         </div>
-        <div class="char-name">메모리(모리)</div>
-        <div class="char-meta">31세 · ISTP</div>
-        <div class="char-actor">OOO 청년</div>
-        <p class="char-desc">코드의 친구. 말 앞에 자주 '야'를 붙이는 가오 충만한 캐릭터. 겉은 무뚝뚝하지만 속은 다르다.</p>
       </div>
-      <div class="char-card">
-        <div class="char-photo-wrap">
-          <!-- 사진 준비되면: <img src="cast/yuso.jpg" alt="주유소"> -->
-          <svg class="char-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+
+      <div class="film-card">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </div>
-        <div class="char-name">주유소</div>
-        <div class="char-meta">불명</div>
-        <div class="char-actor">OOO 청년</div>
-        <p class="char-desc">파마머리에 중절모를 쓴 신비로운 신사. 유명 가수처럼 보이지만 이야기 곳곳에 등장하며 묘한 존재감을 풍긴다.</p>
-      </div>
-      <div class="char-card">
-        <div class="char-photo-wrap">
-          <!-- 사진 준비되면: <img src="cast/news.jpg" alt="굿뉴스"> -->
-          <svg class="char-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <div class="film-info">
+          <div class="film-name">민들레</div>
+          <div class="film-actor">백윤진 · 27세 ISFJ</div>
+          <p class="film-desc">러너의 동갑내기 친구. 따뜻하고 씩씩한 성격.</p>
         </div>
-        <div class="char-name">굿뉴스(뉴스)</div>
-        <div class="char-meta">12세 · ENFP</div>
-        <div class="char-actor">OOO 청년</div>
-        <p class="char-desc">주유소의 조수. 씩씩하고 밝고 엉뚱한 성격의 어린 소녀. 크리스마스를 좋아해서 항상 크리스마스 옷을 입고 다닌다.</p>
       </div>
+
+      <div class="film-card">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="film-info">
+          <div class="film-name">메모리</div>
+          <div class="film-actor">김영빈 · 31세 ISTP</div>
+          <p class="film-desc">코드의 친구. 겉은 무뚝뚝하지만 속은 다르다.</p>
+        </div>
+      </div>
+
+      <div class="film-card">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="film-info">
+          <div class="film-name">주유소</div>
+          <div class="film-actor">박병돈 · 나이 불명</div>
+          <p class="film-desc">파마머리에 중절모를 쓴 신비로운 신사.</p>
+        </div>
+      </div>
+
+      <div class="film-card">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="film-info">
+          <div class="film-name">굿뉴스</div>
+          <div class="film-actor">박시진 · 12세 ENFP</div>
+          <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="film-perf"></div>
+  </div>
+
+  <div class="cast-dots" id="castDots" aria-hidden="true">
+    <span class="dot is-on"></span><span class="dot"></span><span class="dot"></span>
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
+
+  <div class="wrap">
+    <div class="cast-tier">
+      <span class="cast-tier-label">앙상블</span>
+      <span class="cast-tier-line"></span>
+    </div>
+  </div>
+
+  <div class="film-strip film-sub">
+    <div class="film-perf perf-sm"></div>
+    <div class="film-track track-sm">
+      <div class="film-mini">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="film-mini-role">금강산 역</div>
+        <div class="film-mini-actor">홍세호</div>
+      </div>
+      <div class="film-mini">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="film-mini-role">교회 친구 역</div>
+        <div class="film-mini-actor">양희선</div>
+      </div>
+      <div class="film-mini">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="film-mini-role">빵집 사장 역</div>
+        <div class="film-mini-actor">최중수</div>
+      </div>
+      <div class="film-mini">
+        <div class="film-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9FBDD8" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="film-mini-role">코드 아버지 역</div>
+        <div class="film-mini-actor">미정</div>
+      </div>
+    </div>
+    <div class="film-perf perf-sm"></div>
+  </div>
+
+  <div class="wrap">
+    <p class="cast-swipe-hint">← 옆으로 넘겨서 모두 보기 →</p>
+  </div>
+
+
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">티저</div>
+      <h2>달리기, 그 시작</h2>
+    </div>
+    <div class="video-wrap">
+      <!-- 유튜브 링크 준비되면 아래 src의 VIDEO_ID 부분만 교체하세요 -->
+      <!-- 예: https://www.youtube.com/watch?v=ABC123  →  src="https://www.youtube.com/embed/ABC123" -->
+      <iframe
+        src="https://www.youtube.com/embed/hiIo8MhKz04?si=9eAiiCktr9UtdZRW"
+        title="창작 뮤지컬 달리기 티저"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 </section>
 
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
 
-<div class="see-you-wrap">
-  <div class="see-you-box sticker">
-    <p class="see-you-text">올겨울, 함께 달려요! ❄️</p>
-    <p class="see-you-text" style="font-size:clamp(1.1rem,4vw,1.5rem);">메리 크리스마스!</p>
-    <p class="see-you-sub">대화교회 다니엘 청년부 일동</p>
+<!-- STAFF -->
+<section id="staff">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow hand">스태프</div>
+      <h2>만든 사람들</h2>
+    </div>
   </div>
-</div>
+
+  <div class="staff-strip">
+    <div class="film-perf perf-sm"></div>
+    <div class="staff-body">
+      <div class="staff-edge">
+        <span>RUNNING 2026</span><span>◀ END OF ROLL</span>
+      </div>
+      <div class="staff-grid">
+        <div class="staff-cell">
+          <div class="staff-role">작 · 연출</div>
+          <div class="staff-name">고예빈</div>
+        </div>
+        <div class="staff-cell">
+          <div class="staff-role">음악감독</div>
+          <div class="staff-name">OOO</div>
+        </div>
+        <div class="staff-cell">
+          <div class="staff-role">안무</div>
+          <div class="staff-name">OOO · OOO</div>
+        </div>
+        <div class="staff-cell">
+          <div class="staff-role">무대 · 소품</div>
+          <div class="staff-name">OOO · OOO</div>
+        </div>
+        <div class="staff-cell">
+          <div class="staff-role">조명 · 음향</div>
+          <div class="staff-name">OOO · OOO</div>
+        </div>
+        <div class="staff-cell">
+          <div class="staff-role">영상 · 사진</div>
+          <div class="staff-name">OOO</div>
+        </div>
+      </div>
+      <p class="staff-thanks">그리고 함께 기도한 다니엘 청년부 모두</p>
+    </div>
+    <div class="film-perf perf-sm"></div>
+    <div class="staff-snow">
+      <span class="ss-base"></span>
+      <span class="ss-lump l1"></span>
+      <span class="ss-lump l2"></span>
+      <span class="ss-lump l3"></span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="closing">
+      <p class="closing-main">
+        올겨울, 함께 달려요!
+        <svg class="closing-flake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
+      </p>
+      <p class="closing-sub">메리 크리스마스!</p>
+    </div>
+  </div>
+</section>
 
 <svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
 
@@ -526,11 +847,29 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
     });
   })();
 
+  /* ---------- CAST STRIP DOTS ---------- */
+  (function(){
+    const track = document.querySelector('.film-main .film-track');
+    const dots  = document.querySelectorAll('#castDots .dot');
+    if(!track || !dots.length) return;
+    const cards = track.querySelectorAll('.film-card');
+    track.addEventListener('scroll', () => {
+      const c = track.scrollLeft + track.clientWidth / 2;
+      let idx = 0, best = Infinity;
+      cards.forEach((el, i) => {
+        const mid = el.offsetLeft + el.offsetWidth / 2;
+        const d = Math.abs(mid - c);
+        if(d < best){ best = d; idx = i; }
+      });
+      dots.forEach((d, i) => d.classList.toggle('is-on', i === idx));
+    }, { passive: true });
+  })();
+
   /* ---------- FLOAT NAV SCROLL SPY ---------- */
   document.addEventListener('DOMContentLoaded', function(){
     const floatNav = document.querySelector('.float-nav');
     const navLinks = document.querySelectorAll('.float-nav a');
-    const sectionIds = ['top','synopsis','characters'];
+    const sectionIds = ['top','synopsis','characters','video'];
     const sections = sectionIds.map(id => document.getElementById(id));
 
     const indicator = document.createElement('div');
@@ -573,6 +912,10 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <a href="#characters">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     캐스트
+  </a>
+  <a href="#video">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+    티저
   </a>
 </nav>
 
