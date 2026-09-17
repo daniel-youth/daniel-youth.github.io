@@ -286,27 +286,7 @@ section { padding: 46px 0; position: relative; z-index: 1; }
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
-.film-main-viewport { overflow: hidden; padding: 10px 0 12px; }
-.film-main-rail {
-  display: flex;
-  width: max-content;
-  margin-left: 22px;
-  animation: film-roll 150s linear infinite;
-}
-.film-main-set {
-  display: flex; gap: 12px; flex: 0 0 auto;
-  padding-right: 12px;
-}
-@keyframes film-roll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .film-main-rail { animation: none; overflow-x: auto; }
-}
-
 .film-main .film-track {
-  scroll-snap-type: none;
   scrollbar-width: none;
 }
 .film-track::-webkit-scrollbar { display: none; }
@@ -607,6 +587,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
       <div class="eyebrow hand">캐스트</div>
       <h2>함께 달리는 사람들</h2>
     </div>
+    <p class="cast-swipe-hint">← 옆으로 넘겨서 모두 보기 →</p>
     <div class="cast-tier">
       <span class="cast-tier-label">주연</span>
       <span class="cast-tier-line"></span>
@@ -616,10 +597,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <div class="film-fade-in"></div>
   <div class="film-strip film-main">
     <div class="film-perf"></div>
-    <div class="film-main-viewport">
-      <div class="film-main-rail">
-
-        <div class="film-main-set">
+    <div class="film-track">
         <div class="film-card">
           <div class="film-photo"><img src="cast/heeyoung.jpeg" alt="윤희영"></div>
           <div class="film-info">
@@ -668,61 +646,6 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
             <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
           </div>
         </div>
-        </div><!-- /.film-main-set -->
-
-        <!-- 루프용 복제 -->
-        <div class="film-main-set" aria-hidden="true">
-        <div class="film-card" aria-hidden="true">
-          <div class="film-photo"><img src="cast/heeyoung.jpeg" alt=""></div>
-          <div class="film-info">
-            <div class="film-name">달러너</div>
-            <div class="film-actor">윤희영 · 27세 INFP</div>
-            <p class="film-desc">꿈도, 방향도 잃은 채 하루하루를 버텨가는 청년.</p>
-          </div>
-        </div>
-        <div class="film-card" aria-hidden="true">
-          <div class="film-photo"><img src="cast/sein.jpeg" alt=""></div>
-          <div class="film-info">
-            <div class="film-name">레코드</div>
-            <div class="film-actor">박세인 · 31세 ENFJ</div>
-            <p class="film-desc">사진작가로 살아가는 청년. 조용한 힘이 되어준다.</p>
-          </div>
-        </div>
-        <div class="film-card" aria-hidden="true">
-          <div class="film-photo"><img src="cast/yunjin.png" alt=""></div>
-          <div class="film-info">
-            <div class="film-name">민들레</div>
-            <div class="film-actor">백윤진 · 27세 ISFJ</div>
-            <p class="film-desc">러너의 동갑내기 친구. 따뜻하고 씩씩한 성격.</p>
-          </div>
-        </div>
-        <div class="film-card" aria-hidden="true">
-          <div class="film-photo"><img src="cast/youngbin.png" alt=""></div>
-          <div class="film-info">
-            <div class="film-name">메모리</div>
-            <div class="film-actor">김영빈 · 31세 ISTP</div>
-            <p class="film-desc">코드의 친구. 겉은 무뚝뚝하지만 속은 다르다.</p>
-          </div>
-        </div>
-        <div class="film-card" aria-hidden="true">
-          <div class="film-photo"><img src="cast/byungdon.jpeg" alt=""></div>
-          <div class="film-info">
-            <div class="film-name">주유소</div>
-            <div class="film-actor">박병돈 · 나이 불명</div>
-            <p class="film-desc">파마머리에 중절모를 쓴 신비로운 신사.</p>
-          </div>
-        </div>
-        <div class="film-card" aria-hidden="true">
-          <div class="film-photo"><img src="cast/seejin.jpeg" alt=""></div>
-          <div class="film-info">
-            <div class="film-name">굿뉴스</div>
-            <div class="film-actor">박시진 · 12세 ENFP</div>
-            <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
-          </div>
-        </div>
-        </div><!-- /.film-main-set duplicate -->
-
-      </div>
     </div>
     <div class="film-perf"></div>
   </div>
