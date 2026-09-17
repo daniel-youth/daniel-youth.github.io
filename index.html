@@ -288,10 +288,14 @@ section { padding: 46px 0; position: relative; z-index: 1; }
 }
 .film-main-viewport { overflow: hidden; padding: 10px 0 12px; }
 .film-main-rail {
-  display: flex; gap: 12px;
+  display: flex;
   width: max-content;
-  padding-left: 22px;
-  animation: film-roll 70s linear infinite;
+  margin-left: 22px;
+  animation: film-roll 150s linear infinite;
+}
+.film-main-set {
+  display: flex; gap: 12px; flex: 0 0 auto;
+  padding-right: 12px;
 }
 @keyframes film-roll {
   from { transform: translateX(0); }
@@ -615,6 +619,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
     <div class="film-main-viewport">
       <div class="film-main-rail">
 
+        <div class="film-main-set">
         <div class="film-card">
           <div class="film-photo"><img src="cast/heeyoung.jpeg" alt="윤희영"></div>
           <div class="film-info">
@@ -663,8 +668,10 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
             <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
           </div>
         </div>
+        </div><!-- /.film-main-set -->
 
         <!-- 루프용 복제 -->
+        <div class="film-main-set" aria-hidden="true">
         <div class="film-card" aria-hidden="true">
           <div class="film-photo"><img src="cast/heeyoung.jpeg" alt=""></div>
           <div class="film-info">
@@ -713,6 +720,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
             <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
           </div>
         </div>
+        </div><!-- /.film-main-set duplicate -->
 
       </div>
     </div>
