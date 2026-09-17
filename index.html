@@ -286,6 +286,21 @@ section { padding: 46px 0; position: relative; z-index: 1; }
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
+.film-main-viewport { overflow: hidden; padding: 10px 0 12px; }
+.film-main-rail {
+  display: flex; gap: 12px;
+  width: max-content;
+  padding-left: 22px;
+  animation: film-roll 70s linear infinite;
+}
+@keyframes film-roll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .film-main-rail { animation: none; overflow-x: auto; }
+}
+
 .film-main .film-track {
   scroll-snap-type: none;
   scrollbar-width: none;
@@ -588,7 +603,6 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
       <div class="eyebrow hand">캐스트</div>
       <h2>함께 달리는 사람들</h2>
     </div>
-    <p class="cast-swipe-hint">← 옆으로 넘겨서 모두 보기 →</p>
     <div class="cast-tier">
       <span class="cast-tier-label">주연</span>
       <span class="cast-tier-line"></span>
@@ -598,83 +612,113 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <div class="film-fade-in"></div>
   <div class="film-strip film-main">
     <div class="film-perf"></div>
-    <div class="film-track">
+    <div class="film-main-viewport">
+      <div class="film-main-rail">
 
-      <div class="film-card">
-        <div class="film-photo">
-          <img src="cast/heeyoung.jpeg" alt="윤희영">
+        <div class="film-card">
+          <div class="film-photo"><img src="cast/heeyoung.jpeg" alt="윤희영"></div>
+          <div class="film-info">
+            <div class="film-name">달러너</div>
+            <div class="film-actor">윤희영 · 27세 INFP</div>
+            <p class="film-desc">꿈도, 방향도 잃은 채 하루하루를 버텨가는 청년.</p>
+          </div>
         </div>
-        <div class="film-info">
-          <div class="film-name">달러너</div>
-          <div class="film-actor">윤희영 · 27세 INFP</div>
-          <p class="film-desc">꿈도, 방향도 잃은 채 하루하루를 버텨가는 청년.</p>
+        <div class="film-card">
+          <div class="film-photo"><img src="cast/sein.jpeg" alt="박세인"></div>
+          <div class="film-info">
+            <div class="film-name">레코드</div>
+            <div class="film-actor">박세인 · 31세 ENFJ</div>
+            <p class="film-desc">사진작가로 살아가는 청년. 조용한 힘이 되어준다.</p>
+          </div>
         </div>
+        <div class="film-card">
+          <div class="film-photo"><img src="cast/yunjin.png" alt="백윤진"></div>
+          <div class="film-info">
+            <div class="film-name">민들레</div>
+            <div class="film-actor">백윤진 · 27세 ISFJ</div>
+            <p class="film-desc">러너의 동갑내기 친구. 따뜻하고 씩씩한 성격.</p>
+          </div>
+        </div>
+        <div class="film-card">
+          <div class="film-photo"><img src="cast/youngbin.png" alt="김영빈"></div>
+          <div class="film-info">
+            <div class="film-name">메모리</div>
+            <div class="film-actor">김영빈 · 31세 ISTP</div>
+            <p class="film-desc">코드의 친구. 겉은 무뚝뚝하지만 속은 다르다.</p>
+          </div>
+        </div>
+        <div class="film-card">
+          <div class="film-photo"><img src="cast/byungdon.jpeg" alt="박병돈"></div>
+          <div class="film-info">
+            <div class="film-name">주유소</div>
+            <div class="film-actor">박병돈 · 나이 불명</div>
+            <p class="film-desc">파마머리에 중절모를 쓴 신비로운 신사.</p>
+          </div>
+        </div>
+        <div class="film-card">
+          <div class="film-photo"><img src="cast/seejin.jpeg" alt="박시진"></div>
+          <div class="film-info">
+            <div class="film-name">굿뉴스</div>
+            <div class="film-actor">박시진 · 12세 ENFP</div>
+            <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
+          </div>
+        </div>
+
+        <!-- 루프용 복제 -->
+        <div class="film-card" aria-hidden="true">
+          <div class="film-photo"><img src="cast/heeyoung.jpeg" alt=""></div>
+          <div class="film-info">
+            <div class="film-name">달러너</div>
+            <div class="film-actor">윤희영 · 27세 INFP</div>
+            <p class="film-desc">꿈도, 방향도 잃은 채 하루하루를 버텨가는 청년.</p>
+          </div>
+        </div>
+        <div class="film-card" aria-hidden="true">
+          <div class="film-photo"><img src="cast/sein.jpeg" alt=""></div>
+          <div class="film-info">
+            <div class="film-name">레코드</div>
+            <div class="film-actor">박세인 · 31세 ENFJ</div>
+            <p class="film-desc">사진작가로 살아가는 청년. 조용한 힘이 되어준다.</p>
+          </div>
+        </div>
+        <div class="film-card" aria-hidden="true">
+          <div class="film-photo"><img src="cast/yunjin.png" alt=""></div>
+          <div class="film-info">
+            <div class="film-name">민들레</div>
+            <div class="film-actor">백윤진 · 27세 ISFJ</div>
+            <p class="film-desc">러너의 동갑내기 친구. 따뜻하고 씩씩한 성격.</p>
+          </div>
+        </div>
+        <div class="film-card" aria-hidden="true">
+          <div class="film-photo"><img src="cast/youngbin.png" alt=""></div>
+          <div class="film-info">
+            <div class="film-name">메모리</div>
+            <div class="film-actor">김영빈 · 31세 ISTP</div>
+            <p class="film-desc">코드의 친구. 겉은 무뚝뚝하지만 속은 다르다.</p>
+          </div>
+        </div>
+        <div class="film-card" aria-hidden="true">
+          <div class="film-photo"><img src="cast/byungdon.jpeg" alt=""></div>
+          <div class="film-info">
+            <div class="film-name">주유소</div>
+            <div class="film-actor">박병돈 · 나이 불명</div>
+            <p class="film-desc">파마머리에 중절모를 쓴 신비로운 신사.</p>
+          </div>
+        </div>
+        <div class="film-card" aria-hidden="true">
+          <div class="film-photo"><img src="cast/seejin.jpeg" alt=""></div>
+          <div class="film-info">
+            <div class="film-name">굿뉴스</div>
+            <div class="film-actor">박시진 · 12세 ENFP</div>
+            <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
+          </div>
+        </div>
+
       </div>
-
-      <div class="film-card">
-        <div class="film-photo">
-          <img src="cast/sein.jpeg" alt="박세인">
-        </div>
-        <div class="film-info">
-          <div class="film-name">레코드</div>
-          <div class="film-actor">박세인 · 31세 ENFJ</div>
-          <p class="film-desc">사진작가로 살아가는 청년. 조용한 힘이 되어준다.</p>
-        </div>
-      </div>
-
-      <div class="film-card">
-        <div class="film-photo">
-          <img src="cast/yunjin.png" alt="백윤진">
-        </div>
-        <div class="film-info">
-          <div class="film-name">민들레</div>
-          <div class="film-actor">백윤진 · 27세 ISFJ</div>
-          <p class="film-desc">러너의 동갑내기 친구. 따뜻하고 씩씩한 성격.</p>
-        </div>
-      </div>
-
-      <div class="film-card">
-        <div class="film-photo">
-          <img src="cast/youngbin.png" alt="김영빈">
-        </div>
-        <div class="film-info">
-          <div class="film-name">메모리</div>
-          <div class="film-actor">김영빈 · 31세 ISTP</div>
-          <p class="film-desc">코드의 친구. 겉은 무뚝뚝하지만 속은 다르다.</p>
-        </div>
-      </div>
-
-      <div class="film-card">
-        <div class="film-photo">
-          <img src="cast/byungdon.jpeg" alt="박병돈">
-        </div>
-        <div class="film-info">
-          <div class="film-name">주유소</div>
-          <div class="film-actor">박병돈 · 나이 불명</div>
-          <p class="film-desc">파마머리에 중절모를 쓴 신비로운 신사.</p>
-        </div>
-      </div>
-
-      <div class="film-card">
-        <div class="film-photo">
-          <img src="cast/seejin.jpeg" alt="박시진">
-        </div>
-        <div class="film-info">
-          <div class="film-name">굿뉴스</div>
-          <div class="film-actor">박시진 · 12세 ENFP</div>
-          <p class="film-desc">씩씩하고 밝고 엉뚱한 성격의 어린 소녀.</p>
-        </div>
-      </div>
-
     </div>
     <div class="film-perf"></div>
   </div>
   <div class="film-fade-out"></div>
-
-  <div class="cast-dots" id="castDots" aria-hidden="true">
-    <span class="dot is-on"></span><span class="dot"></span><span class="dot"></span>
-    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-  </div>
 
   <div class="wrap">
     <div class="cast-tier">
@@ -841,52 +885,6 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
         setTimeout(() => { btn.innerHTML = linkSvg + ' 같이 볼 사람에게 공유하기'; btn.classList.remove('copied'); }, 2000);
       }
     });
-  })();
-
-  /* ---------- CAST STRIP DOTS ---------- */
-  (function(){
-    const track = document.querySelector('.film-main .film-track');
-    const dots  = document.querySelectorAll('#castDots .dot');
-    if(!track || !dots.length) return;
-    const cards = track.querySelectorAll('.film-card');
-    track.addEventListener('scroll', () => {
-      const c = track.scrollLeft + track.clientWidth / 2;
-      let idx = 0, best = Infinity;
-      cards.forEach((el, i) => {
-        const mid = el.offsetLeft + el.offsetWidth / 2;
-        const d = Math.abs(mid - c);
-        if(d < best){ best = d; idx = i; }
-      });
-      dots.forEach((d, i) => d.classList.toggle('is-on', i === idx));
-    }, { passive: true });
-  })();
-
-  /* ---------- CAST AUTO-SCROLL ---------- */
-  (function(){
-    const track = document.querySelector('.film-main .film-track');
-    if (!track) return;
-    let paused = false;
-    const speed = 0.35;
-
-    track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-    track.addEventListener('touchend', () => {
-      setTimeout(() => { paused = false; }, 3000);
-    }, { passive: true });
-
-    function step() {
-      if (!paused) {
-        const max = track.scrollWidth - track.clientWidth;
-        if (track.scrollLeft >= max - 1) {
-          track.scrollTo({ left: 0, behavior: 'smooth' });
-          paused = true;
-          setTimeout(() => { paused = false; }, 2500);
-        } else {
-          track.scrollLeft += speed;
-        }
-      }
-      requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
   })();
 
   /* ---------- FLOAT NAV SCROLL SPY ---------- */
