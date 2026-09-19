@@ -166,8 +166,9 @@ body::before {
 }
 .hc-quote {
   margin: 0;
+  align-self: center;
   font-family: 'Gaegu', cursive; font-weight: 700;
-  font-size: 1.05rem; line-height: 1.5; color: var(--blue);
+  font-size: 1.2rem; line-height: 1.5; color: var(--blue);
   word-break: keep-all;
 }
 .hc-hand {
@@ -183,8 +184,7 @@ body::before {
 .film-fade-in, .film-fade-out { height: 26px; }
 .film-fade-in  { background: linear-gradient(180deg, rgba(143,200,232,0) 0%, rgba(143,200,232,0.45) 100%); }
 .film-fade-out { background: linear-gradient(180deg, rgba(143,200,232,0.45) 0%, rgba(143,200,232,0) 100%); }
-#characters .film-fade-in, #characters .film-fade-out,
-#staff .film-fade-in, #staff .film-fade-out { height: 20px; opacity: 0.9; }
+#characters .film-fade-in, #characters .film-fade-out { height: 20px; opacity: 0.9; }
 
 section { padding: 46px 0; position: relative; z-index: 1; }
 .section-head { text-align: center; margin-bottom: 28px; }
@@ -242,14 +242,39 @@ section { padding: 46px 0; position: relative; z-index: 1; }
   font-size: 1.05rem; color: var(--sky);
 }
 
+/* ---------- STAFF DIRECTOR ---------- */
+#staff .cast-tier { margin-bottom: 16px; }
+#staff .director { padding-left: 22px; padding-right: 22px; }
+#staff .cast-tier,
+#staff .staff-thanks { padding-left: 0; padding-right: 0; }
+.director { text-align: center; padding-bottom: 18px; }
+.dir-role {
+  font-family: 'Pretendard', -apple-system, sans-serif;
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 3px;
+  color: #4A6E9A;
+}
+.dir-name {
+  font-family: 'Gaegu', cursive; font-weight: 700;
+  font-size: 1.8rem; line-height: 1.15; color: var(--ink);
+  margin-top: 2px;
+}
+.dir-en {
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  margin-top: 6px;
+}
+.dir-line { flex: 0 0 22px; height: 2px; background: #B7CFE4; }
+.dir-en-text {
+  font-family: 'Caveat', cursive; font-weight: 700;
+  font-size: 1.1rem; letter-spacing: 2px; color: var(--sky);
+  white-space: nowrap;
+}
+
 /* ---------- CHARACTERS ---------- */
 #characters .wrap { padding: 0; }
 #characters .section-head,
 #characters .cast-tier,
 #characters .cast-dots,
-#characters .cast-swipe-hint,
-#characters .staff-thanks,
-#characters .closing { padding-left: 22px; padding-right: 22px; }
+#characters .cast-swipe-hint { padding-left: 22px; padding-right: 22px; }
 
 .cast-tier { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; }
 .cast-tier-label {
@@ -370,7 +395,7 @@ section { padding: 46px 0; position: relative; z-index: 1; }
 .credit-rail {
   display: flex;
   width: max-content;
-  animation: credit-roll 50s linear infinite;
+  animation: credit-roll 43s linear infinite;
 }
 .credit-set {
   display: flex; gap: 26px;
@@ -441,7 +466,7 @@ section { padding: 46px 0; position: relative; z-index: 1; }
   width: 100%; height: 100%; display: block; border: none;
 }
 
-footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); font-size: 0.8rem; }
+footer { text-align: center; padding: 14px 24px 50px; color: var(--ink-soft); font-size: 0.8rem; }
 
 /* Share button */
 .share-btn {
@@ -540,7 +565,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
       </div>
     </div>
     <div class="hf-edge">
-      <span>RUNNING 2026</span><span>전석 무료 · 자유석</span>
+      <span>RUNNING 2026</span><span>전석 무료</span>
     </div>
     <div class="hf-perf"></div>
     <div class="hf-snow">
@@ -554,7 +579,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <div class="film-fade-out"></div>
 
   <div class="hero-caption">
-    <p class="hc-quote">"오늘도 피사체 훌륭하고,<br>밝기 좋음."</p>
+    <p class="hc-quote" style="white-space: nowrap;">"오늘도 피사체 훌륭하고, 밝기 좋음."</p>
     <p class="hc-hand">let's run<br>together !</p>
   </div>
 </section>
@@ -566,7 +591,7 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow hand">줄거리</div>
-      <h2>그들이 달린 이유</h2>
+      <h2>우리가 달린 이유</h2>
     </div>
     <div class="syn-card">
       <div class="syn-quote">
@@ -713,44 +738,6 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
   </div>
   <div class="film-fade-out"></div>
 
-  <div class="wrap" style="padding-top: 24px;">
-    <div class="cast-tier">
-      <span class="cast-tier-label">만든 사람들</span>
-      <span class="cast-tier-line"></span>
-    </div>
-  </div>
-
-  <div class="credit-strip">
-    <div class="credit-perf"></div>
-    <div class="credit-viewport">
-      <div class="credit-rail">
-        <div class="credit-set">
-          <span class="credit-item"><span class="ci-role">작 · 연출</span><span class="ci-name">고예빈</span></span>
-          <span class="credit-item"><span class="ci-role">음악감독</span><span class="ci-name">OOO</span></span>
-          <span class="credit-item"><span class="ci-role">안무</span><span class="ci-name">OOO · OOO</span></span>
-          <span class="credit-item"><span class="ci-role">무대 · 소품</span><span class="ci-name">OOO · OOO</span></span>
-          <span class="credit-item"><span class="ci-role">조명 · 음향</span><span class="ci-name">OOO · OOO</span></span>
-          <span class="credit-item"><span class="ci-role">영상 · 사진</span><span class="ci-name">OOO</span></span>
-          <span class="credit-mark">RUNNING 2026 ◆</span>
-        </div>
-        <div class="credit-set" aria-hidden="true">
-          <span class="credit-item"><span class="ci-role">작 · 연출</span><span class="ci-name">고예빈</span></span>
-          <span class="credit-item"><span class="ci-role">음악감독</span><span class="ci-name">OOO</span></span>
-          <span class="credit-item"><span class="ci-role">안무</span><span class="ci-name">OOO · OOO</span></span>
-          <span class="credit-item"><span class="ci-role">무대 · 소품</span><span class="ci-name">OOO · OOO</span></span>
-          <span class="credit-item"><span class="ci-role">조명 · 음향</span><span class="ci-name">OOO · OOO</span></span>
-          <span class="credit-item"><span class="ci-role">영상 · 사진</span><span class="ci-name">OOO</span></span>
-          <span class="credit-mark">RUNNING 2026 ◆</span>
-        </div>
-      </div>
-    </div>
-    <div class="credit-perf"></div>
-  </div>
-
-  <div class="wrap">
-    <p class="staff-thanks">그리고 함께 기도한 다니엘 청년부 모두</p>
-  </div>
-
 </section>
 
 <svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
@@ -772,6 +759,9 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
         allowfullscreen>
       </iframe>
     </div>
+  </div>
+
+  <div class="wrap">
     <div class="closing-wrap">
       <p class="closing-main">
         <span class="hl">올겨울, 함께 달려요!</span>
@@ -780,6 +770,51 @@ footer { text-align: center; padding: 30px 24px 50px; color: var(--ink-soft); fo
       <p class="closing-sub"><span class="hl">메리 크리스마스!</span></p>
       <p class="closing-from">대화교회 다니엘 청년부 일동</p>
     </div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 800 22" preserveAspectRatio="none"><path d="M0,11 C100,-4 150,26 250,11 C350,-4 400,26 500,11 C600,-4 650,26 750,11 L800,11"></path></svg>
+
+<section id="staff">
+  <div class="wrap">
+    <div class="director">
+      <div class="dir-en">
+        <span class="dir-line"></span>
+        <span class="dir-en-text">written &amp; directed by</span>
+        <span class="dir-line"></span>
+      </div>
+      <div class="dir-role">작 · 연출 · 기획 · 총괄</div>
+      <div class="dir-name">고예빈</div>
+    </div>
+  </div>
+
+  <div class="credit-strip">
+    <div class="credit-perf"></div>
+    <div class="credit-viewport">
+      <div class="credit-rail">
+        <div class="credit-set">
+          <span class="credit-item"><span class="ci-role">음악감독</span><span class="ci-name">OOO</span></span>
+          <span class="credit-item"><span class="ci-role">안무</span><span class="ci-name">OOO · OOO</span></span>
+          <span class="credit-item"><span class="ci-role">무대 · 소품</span><span class="ci-name">OOO · OOO</span></span>
+          <span class="credit-item"><span class="ci-role">조명 · 음향</span><span class="ci-name">OOO · OOO</span></span>
+          <span class="credit-item"><span class="ci-role">영상 · 사진</span><span class="ci-name">OOO</span></span>
+          <span class="credit-mark">RUNNING 2026 ◆</span>
+        </div>
+        <div class="credit-set" aria-hidden="true">
+          <span class="credit-item"><span class="ci-role">음악감독</span><span class="ci-name">OOO</span></span>
+          <span class="credit-item"><span class="ci-role">안무</span><span class="ci-name">OOO · OOO</span></span>
+          <span class="credit-item"><span class="ci-role">무대 · 소품</span><span class="ci-name">OOO · OOO</span></span>
+          <span class="credit-item"><span class="ci-role">조명 · 음향</span><span class="ci-name">OOO · OOO</span></span>
+          <span class="credit-item"><span class="ci-role">영상 · 사진</span><span class="ci-name">OOO</span></span>
+          <span class="credit-mark">RUNNING 2026 ◆</span>
+        </div>
+      </div>
+    </div>
+    <div class="credit-perf"></div>
+  </div>
+
+  <div class="wrap">
+    <p class="staff-thanks">그리고 함께 기도한 다니엘 청년부 모두</p>
   </div>
 </section>
 
